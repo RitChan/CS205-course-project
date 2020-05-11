@@ -72,7 +72,11 @@ static int test0() {
 
 static int test1() {
     // test matrix.at(i, j)
-
+    matrix = Matrix<int>(5, 6);
+    expectException(matrix.at(5, 6))
+    assertNoException(matrix.at(4, 5))
+    assertTrue(matrix.at(4, 5) == 0)
+    assertTrue((matrix.at(0, 0) = 1) == 1)
     return PASS;
 }
 

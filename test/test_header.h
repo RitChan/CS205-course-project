@@ -10,6 +10,7 @@ void test_file_0_main();
 void test_file_1_main();
 
 TestFileFunc all[] = {
+        // register file level test here
         test_file_0_main,
         test_file_1_main
 };

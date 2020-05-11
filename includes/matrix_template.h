@@ -13,11 +13,9 @@ template<typename T>
 class Matrix {
 public:
     typedef std::pair<T, std::vector<T>> EigenPair; // <eigen_value, eigen_vector>
-    static Matrix<T> dot(const Matrix<T> &left, const Matrix<T> &right);
-    static Matrix<T> cross(const Matrix<T> &left, const Matrix<T> &right);
     Matrix(): _valid(false) {};
     Matrix(int d1size, int d2size);
-    // TODO *= and /= and += and -=
+    // TODO *= and /=
     Matrix<T> &operator*=(const T &other);
     Matrix<T> operator+(const Matrix<T> &other) const;
     Matrix<T> &operator+=(const Matrix<T> &other);
@@ -29,7 +27,7 @@ public:
     const std::vector<T> &operator[](int index) const;
     Matrix<T> transpose() const;
     std::vector<T> &at(int index);
-    // TODO T &at(int i, int j);
+    T &at(int i, int j);
     T max() const; // TODO support axis
     T min() const;
     T sum() const;
@@ -37,6 +35,8 @@ public:
     std::list<EigenPair> eigen_decompose() const;
     T trace() const;
     T determinant() const;
+    Matrix<T> dot(const Matrix<T> &other) const { return *this * other; };
+    Matrix<T> cross(const Matrix<T> &other) const;
     int get_d1size() const { return d1size; };
     int get_d2size() const { return d2size; };
     bool valid() { return _valid; };
@@ -47,7 +47,6 @@ public:
     template<typename M>
     friend Matrix<M> operator/(const Matrix<M> &matrix, const M &c);
 
-
     // TODO slicing
     // TODO convolution operations
 protected:
@@ -55,6 +54,7 @@ protected:
     int d2size{0}; // size of dimension 2
     std::vector<std::vector<T>> entry{}; // 2 choices: 1: raw array, 2: vector
     bool _valid{true};
+    bool equal_size(const Matrix<T> &other) const { return d1size == other.d1size && d2size == other.d2size; };
 };
 
 #endif //COURSEPROJECT_MATRIX_TEMPLATE_H

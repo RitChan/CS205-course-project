@@ -22,6 +22,7 @@ static int test3();
 static int test4();
 static int test5();
 static int test6();
+static int test7();
 
 
 //  global variable
@@ -51,7 +52,8 @@ void test_file_1_main() {
             test3,
             test4,
             test5,
-            test6
+            test6,
+            test7
     };
     int i = 0, ret;
     for (TestFunc test: tests) {
@@ -145,6 +147,24 @@ static int test6() {
     matrix += matrix;
     assertTrue(matrix[0][0] == 2)
     assertTrue(matrix[1][0] == 6)
+
+    return PASS;
+}
+
+static int test7() {
+    // test `matrix * matrix`
+    Matrix<int> other = matrix * matrix;
+    assertTrue(other.valid());
+    assertTrue(other.at(0, 0) == 7)
+    assertTrue(other.at(1, 1) == 22)
+
+    other = matrix * Matrix<int>(1, 10);
+    assertTrue(!other.valid())
+
+    other = matrix * Matrix<int>(2, 10);
+    assertTrue(other.valid())
+    assertTrue(other.get_d1size() == 2)
+    assertTrue(other.get_d2size() == 10)
 
     return PASS;
 }
