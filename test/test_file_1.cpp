@@ -18,6 +18,10 @@ enum { PASS, FAILURE };
 static int test0();
 static int test1();
 static int test2();
+static int test3();
+static int test4();
+static int test5();
+static int test6();
 
 
 //  global variable
@@ -43,7 +47,11 @@ void test_file_1_main() {
             // all TestFunc registered here
             test0,
             test1,
-            test2
+            test2,
+            test3,
+            test4,
+            test5,
+            test6
     };
     int i = 0, ret;
     for (TestFunc test: tests) {
@@ -85,6 +93,58 @@ static int test2() {
 
     Matrix<int> invalid_sum = Matrix<int>(1, 3) + matrix;
     assertTrue(!invalid_sum.valid())
+
+    return PASS;
+}
+
+static int test3() {
+    // test `matrix - matrix`
+    Matrix<int> diff = matrix - matrix;
+    assertTrue(diff.valid())
+    assertTrue(diff[0][0] == 0)
+
+    Matrix<int> matrix1(matrix.get_d1size(), matrix.get_d2size());
+    diff = matrix1 - matrix;
+    assertTrue(diff[0][0] == - matrix[0][0])
+
+    matrix1 = Matrix<int>(1, 20);
+    diff = matrix - matrix1;
+    assertTrue(!diff.valid())
+
+    return PASS;
+}
+
+static int test4() {
+    // test `matrix / scalar`
+    Matrix<int> res = matrix / 2;
+    assertTrue(res[0][0] == 0)
+    assertTrue(res[1][1] == 2)
+    return PASS;
+}
+
+static int test5() {
+    // test `Matrix::transpose`
+    Matrix<double> matrix1(4, 5);
+    matrix1 = matrix1.transpose();
+    assertTrue(matrix1.valid())
+    assertTrue(matrix1.get_d2size() == 4)
+    assertTrue(matrix1.get_d1size() == 5)
+
+    matrix = matrix.transpose();
+    assertTrue(matrix[0][0] == 1)
+    assertTrue(matrix[1][0] == 2)
+
+    return PASS;
+}
+
+static int test6() {
+    // test `matrix += matrix;
+    Matrix<int> m(1, 10);
+    assertTrue(!(matrix+=m).valid());
+
+    matrix += matrix;
+    assertTrue(matrix[0][0] == 2)
+    assertTrue(matrix[1][0] == 6)
 
     return PASS;
 }

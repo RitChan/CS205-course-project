@@ -8,12 +8,12 @@
 
 template<typename T>
 Matrix<T> Matrix<T>::dot(const Matrix<T> &left, const Matrix<T> &right) {
-    return Matrix<T>(0, 0);
+    return Matrix<T>();
 }
 
 template<typename T>
 Matrix<T> Matrix<T>::cross(const Matrix<T> &left, const Matrix<T> &right) {
-    return Matrix<T>(0, 0);
+    return Matrix<T>();
 }
 
 template<typename T>
@@ -48,13 +48,42 @@ Matrix<T> Matrix<T>::operator+(const Matrix<T> &other) const {
 }
 
 template<typename T>
-Matrix<T> Matrix<T>::operator-(const Matrix<T> &other) const {
-    return Matrix<T>(0, 0);
+Matrix<T> &Matrix<T>::operator+=(const Matrix<T> &other) {
+    static Matrix<T> invalid;
+    if (d1size != other.d1size || d2size != other.d2size)
+        return invalid;
+    for (int i = 0; i < d1size; i++) {
+        for (int j = 0; j < d2size; j++) {
+            entry[i][j] += other[i][j];
+        }
+    }
+    return *this;
 }
 
 template<typename T>
+Matrix<T> Matrix<T>::operator-(const Matrix<T> &other) const {
+    Matrix<int> ret; // default invalid matrix
+    if (d1size != other.d1size || d2size != other.d2size) {
+        return ret;
+    }
+    ret = *this;
+    for (int i = 0; i < d1size; i++) {
+        for (int j = 0; j < d2size; j++) {
+            ret[i][j] -= other[i][j];
+        }
+    }
+    return ret;
+}
+
+template<typename T>
+Matrix<T> &Matrix<T>::operator-=(const Matrix<T> &other) {
+    return Matrix<T>();
+}
+
+
+template<typename T>
 Matrix<T> Matrix<T>::operator*(const Matrix<T> &other) const {
-    return Matrix<T>(0, 0);
+    return Matrix<T>();
 }
 
 template<typename T>
@@ -94,13 +123,24 @@ Matrix<T> operator*(const T &c, const Matrix<T> &matrix) {
 }
 
 template<typename T>
-Matrix<T> operator/(const T &c, const Matrix<T> &matrix) {
-    return Matrix<T>(0, 0);
+Matrix<T> operator/(const Matrix<T> &matrix, const T &c) {
+    Matrix<T> ret = matrix; // TODO handle zero division
+    for (std::vector<T> &v: ret.entry) {
+        for (T &e: v)
+            e /= c;
+    }
+    return ret;
 }
 
 template<typename T>
 Matrix<T> Matrix<T>::transpose() const {
-    return Matrix<T>(0, 0);
+    Matrix<T> ret(d2size, d1size);
+    for (int i = 0; i < d1size; i++) {
+        for (int j = 0; j < d2size; j++) {
+            ret[j][i] = entry[i][j];
+        }
+    }
+    return ret;
 }
 
 template<typename T>

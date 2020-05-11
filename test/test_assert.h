@@ -8,14 +8,14 @@
 
 #define assertTrue(expr)\
 if(!(expr)) {\
-    std::cout << "assertTrue: failed:" << #expr << endl;\
+    std::cout << "assertTrue: failed: '" << #expr << "' should be true" << endl;\
     return -1;\
 }
 
 #define expectException(expr)\
 try {\
     expr;\
-    std::cout << "expectException: failed: " << #expr << endl;\
+    std::cout << "expectException: failed: '" << #expr << "' should throw exception" << endl;\
     return -1;\
 } catch(...) {}
 
@@ -23,7 +23,7 @@ try {\
 try {\
     expr;\
 } catch(...) {\
-    std::cout << "assertNoException: failed: " << #expr << endl;\
+    std::cout << "assertNoException: failed: " << #expr << "' should NOT throw exception" << endl;\
     return -1;\
 }
 #endif //COURSEPROJECT_TEST_ASSERT_H

@@ -20,7 +20,9 @@ public:
     // TODO *= and /= and += and -=
     Matrix<T> &operator*=(const T &other);
     Matrix<T> operator+(const Matrix<T> &other) const;
+    Matrix<T> &operator+=(const Matrix<T> &other);
     Matrix<T> operator-(const Matrix<T> &other) const;
+    Matrix<T> &operator-=(const Matrix<T> &other);
     Matrix<T> operator*(const Matrix<T> &other) const;
     Matrix<T> operator*(const T &other) const;
     std::vector<T> &operator[](int index);
@@ -43,7 +45,7 @@ public:
     friend Matrix<M> operator*(const M &c, const Matrix<M> &matrix);
 
     template<typename M>
-    friend Matrix<M> operator/(const M &c, const Matrix<M> &matrix);
+    friend Matrix<M> operator/(const Matrix<M> &matrix, const M &c);
 
 
     // TODO slicing
