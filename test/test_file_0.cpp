@@ -12,18 +12,18 @@ typedef int (*TestFunc)();
 enum { PASS = 0, FAILURE = -1 };
 
 // test declaration
-int test0();
-int test1();
+static int test0();
+static int test1();
 
-//  global variable
-Matrix<int> matrix;
+//  global variable (make it static)
+static Matrix<int> matrix;
 
-void before() {
+static void before() {
     matrix = Matrix<int>();
     // executed before every test
 }
 
-void after() {
+static void after() {
     // executed after every test
 }
 
@@ -46,7 +46,7 @@ void test_file_0_main() {
     }
 }
 
-int test0() {
+static int test0() {
     // test Matrix(int, int) and Matrix.at(int)
     matrix = Matrix<int>(5, 6);
     assertTrue(matrix.get_d1size() == 5)
@@ -69,8 +69,9 @@ int test0() {
     return PASS;
 }
 
-int test1() {
-    // test
+static int test1() {
+    // test matrix.at(i, j)
+
     return PASS;
 }
 
