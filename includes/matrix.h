@@ -10,7 +10,8 @@
 
 template<typename T>
 Matrix<T>::Matrix(int d1size, int d2size): d1size(d1size), d2size(d2size), entry(d1size, std::vector<T>(d2size)), _valid(true) {
-
+    if (d1size <= 0 || d2size <= 0)
+        _valid = false;
 }
 
 template<typename T>
@@ -26,7 +27,7 @@ Matrix<T> &Matrix<T>::operator*=(const T &other) {
 template<typename T>
 Matrix<T> Matrix<T>::operator+(const Matrix<T> &other) const {
     Matrix<T> ret;
-    if (!equal_size(other)) {
+    if (!shape_equal_to(other)) {
         ret._valid = false;
         return ret;
     }
@@ -41,9 +42,9 @@ Matrix<T> Matrix<T>::operator+(const Matrix<T> &other) const {
 
 template<typename T>
 Matrix<T> &Matrix<T>::operator+=(const Matrix<T> &other) {
-    static Matrix<T> invalid;
-    if (!equal_size(other))
-        return invalid;
+    static Matrix<T> INVALID;
+    if (!shape_equal_to(other))
+        return INVALID;
     for (int i = 0; i < d1size; i++) {
         for (int j = 0; j < d2size; j++) {
             entry[i][j] += other[i][j];
@@ -55,7 +56,7 @@ Matrix<T> &Matrix<T>::operator+=(const Matrix<T> &other) {
 template<typename T>
 Matrix<T> Matrix<T>::operator-(const Matrix<T> &other) const {
     Matrix<int> ret; // default invalid matrix
-    if (!equal_size(other)) {
+    if (!shape_equal_to(other)) {
         return ret;
     }
     ret = *this;
@@ -69,7 +70,15 @@ Matrix<T> Matrix<T>::operator-(const Matrix<T> &other) const {
 
 template<typename T>
 Matrix<T> &Matrix<T>::operator-=(const Matrix<T> &other) {
-    return Matrix<T>();
+    static Matrix<T> INVALID;
+    if (!shape_equal_to(other))
+        return INVALID;
+    for (int i = 0; i < d1size; i++) {
+        for (int j = 0; j < d2size; j++) {
+            entry[i][j] -= other[i][j];
+        }
+    }
+    return *this;
 }
 
 
@@ -116,10 +125,6 @@ std::vector <T> &Matrix<T>::at(int index) {
     return entry.at(index);
 }
 
-template<typename T>
-T &Matrix<T>::at(int i, int j) {
-    return entry.at(i).at(j);
-}
 
 template<typename T>
 Matrix<T> operator*(const T &c, const Matrix<T> &matrix) {
@@ -129,6 +134,11 @@ Matrix<T> operator*(const T &c, const Matrix<T> &matrix) {
             e *= c;
     }
     return ret;
+}
+
+template<typename T>
+Matrix<T> &Matrix<T>::operator*=(const Matrix<T> &other) {
+
 }
 
 template<typename T>
@@ -190,6 +200,14 @@ T Matrix<T>::determinant() const {
 template<typename T>
 Matrix<T> Matrix<T>::cross(const Matrix<T> &other) const {
     return Matrix<T>();
+}
+
+template<typename T>
+Matrix<T> Matrix<T>::dot(const Matrix<T> &other) const {
+    // TODO need more specifications
+    if (!shape_equal_to(other) || d1size != 1)
+        return Matrix<T>();
+    return other * (*this);
 }
 
 #endif //COURSEPROJECT_MATRIX_H

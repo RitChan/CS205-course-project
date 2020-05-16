@@ -11,7 +11,7 @@
 #include <iostream>
 using namespace std;
 typedef int (*TestFunc)();
-enum { PASS, FAILURE };
+enum { PASS = 0, FAILURE = -1 };
 
 
 // test declarations
@@ -23,6 +23,7 @@ static int test4();
 static int test5();
 static int test6();
 static int test7();
+static int test8();
 
 
 //  global variable
@@ -53,7 +54,8 @@ void test_file_1_main() {
             test4,
             test5,
             test6,
-            test7
+            test7,
+            test8
     };
     int i = 0, ret;
     for (TestFunc test: tests) {
@@ -165,6 +167,22 @@ static int test7() {
     assertTrue(other.valid())
     assertTrue(other.get_d1size() == 2)
     assertTrue(other.get_d2size() == 10)
+
+    return PASS;
+}
+
+static int test8() {
+    // test matrix -= matrix
+    Matrix<int> other = Matrix<int>(2, 2);
+
+    other[0][1] = 5;
+    other[1][0] = 2;
+
+    assertTrue((matrix -= other).valid())
+    assertTrue(matrix[0][1] == -3)
+    assertTrue(matrix[1][0] == 1)
+
+    assertTrue(!(matrix -= Matrix<int>(1, 10)).valid())
 
     return PASS;
 }
