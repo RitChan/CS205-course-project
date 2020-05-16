@@ -8,7 +8,7 @@ using namespace std;
 int main() {
     int i = 0;
     for (TestFileFunc fileTest: all) {
-        cout << endl << "[File " << i++ << " test starts]" << endl;
+        cout << endl << "[File " << i++ << " tests]" << endl;
         (*fileTest)();
     }
 }

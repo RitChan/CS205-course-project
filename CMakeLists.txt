@@ -6,5 +6,5 @@ include_directories(includes)
 set(MAJOR )
 
 add_executable(CourseProject main.cpp)
-add_executable(test test/test_file_0.cpp test/test_main.cpp test/test_header.h test/test_assert.h test/test_file_1.cpp)
+add_executable(test test/test_file_0.cpp test/test_main.cpp test/test_header.h test/test_assert.h test/test_file_1.cpp test/test_file_2.cpp)
 target_include_directories(test PUBLIC test)

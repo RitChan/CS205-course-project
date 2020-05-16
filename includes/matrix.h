@@ -164,17 +164,35 @@ Matrix<T> Matrix<T>::transpose() const {
 
 template<typename T>
 T Matrix<T>::max() const {
-    return nullptr;
+    T max_T;
+    for (int i = 0; i < d1size; i++) {
+        for (int j = 0; j < d2size; j++) {
+            max_T = max_T < entry[i][j] ? entry[i][j] : max_T;
+        }
+    }
+    return max_T;
 }
 
 template<typename T>
 T Matrix<T>::min() const {
-    return nullptr;
+    T min_T;
+    for (int i = 0; i < d1size; i++) {
+        for (int j = 0; j < d2size; j++) {
+            min_T = min_T > entry[i][j] ? entry[i][j] : min_T;
+        }
+    }
+    return min_T;
 }
 
 template<typename T>
 T Matrix<T>::sum() const {
-    return nullptr;
+    T sum_T;
+    for (int i = 0; i < d1size; i++) {
+        for (int j = 0; j < d2size; j++) {
+            sum_T += entry[i][j];
+        }
+    }
+    return sum_T;
 }
 
 template<typename T>
