@@ -1,11 +1,12 @@
 //
 // Created by chenh on 5/11/2020.
 //
-
+// TODO 10 functions remained
 #ifndef COURSEPROJECT_MATRIX_H
 #define COURSEPROJECT_MATRIX_H
 #include "matrix_template.h"
 #include <iostream>
+#include <vector>
 
 
 template<typename T>
@@ -138,7 +139,8 @@ Matrix<T> operator*(const T &c, const Matrix<T> &matrix) {
 
 template<typename T>
 Matrix<T> &Matrix<T>::operator*=(const Matrix<T> &other) {
-
+    static Matrix<T> INVALID;
+    return INVALID;
 }
 
 template<typename T>
@@ -164,7 +166,7 @@ Matrix<T> Matrix<T>::transpose() const {
 
 template<typename T>
 T Matrix<T>::max() const {
-    T max_T;
+    T max_T = entry.at(0).at(0);
     for (int i = 0; i < d1size; i++) {
         for (int j = 0; j < d2size; j++) {
             max_T = max_T < entry[i][j] ? entry[i][j] : max_T;
@@ -175,7 +177,7 @@ T Matrix<T>::max() const {
 
 template<typename T>
 T Matrix<T>::min() const {
-    T min_T;
+    T min_T = entry.at(0).at(0);
     for (int i = 0; i < d1size; i++) {
         for (int j = 0; j < d2size; j++) {
             min_T = min_T > entry[i][j] ? entry[i][j] : min_T;
@@ -186,13 +188,13 @@ T Matrix<T>::min() const {
 
 template<typename T>
 T Matrix<T>::sum() const {
-    T sum_T;
+    T sum_T = entry.at(0).at(0);
     for (int i = 0; i < d1size; i++) {
         for (int j = 0; j < d2size; j++) {
             sum_T += entry[i][j];
         }
     }
-    return sum_T;
+    return sum_T - entry.at(0).at(0);
 }
 
 template<typename T>
@@ -226,6 +228,36 @@ Matrix<T> Matrix<T>::dot(const Matrix<T> &other) const {
     if (!shape_equal_to(other) || d1size != 1)
         return Matrix<T>();
     return other * (*this);
+}
+
+template<typename T>
+T Matrix<T>::row_max(int row) const {
+    return nullptr;
+}
+
+template<typename T>
+T Matrix<T>::col_max(int col) const {
+    return nullptr;
+}
+
+template<typename T>
+T Matrix<T>::row_min(int row) const {
+   return nullptr;
+}
+
+template<typename T>
+T Matrix<T>::col_min(int col) const {
+    return nullptr;
+}
+
+template<typename T>
+T Matrix<T>::row_sum(int row) const {
+    return nullptr;
+}
+
+template<typename T>
+T Matrix<T>::col_sum(int col) const {
+    return nullptr;
 }
 
 #endif //COURSEPROJECT_MATRIX_H

@@ -15,7 +15,7 @@ public:
     typedef std::pair<T, std::vector<T>> EigenPair; // <eigen_value, eigen_vector>
     Matrix(): _valid(false) {};
     Matrix(int d1size, int d2size);
-    // TODO *= and /=
+    // TODO /=, matrix * vector
     Matrix<T> operator+(const Matrix<T> &other) const;
     Matrix<T> &operator+=(const Matrix<T> &other);
     Matrix<T> operator-(const Matrix<T> &other) const;
@@ -32,8 +32,14 @@ public:
     T &at(int i, int j) { return entry.at(i).at(j); };
     const T &at(int i, int j) const { return entry.at(i).at(j); };
     T max() const; // TODO support axis
+    T row_max(int row) const;
+    T col_max(int col) const;
     T min() const;
+    T row_min(int row) const;
+    T col_min(int col) const;
     T sum() const;
+    T row_sum(int row) const;
+    T col_sum(int col) const;
     T avg() const;
     std::list<EigenPair> eigen_decompose() const;
     T trace() const;
@@ -55,9 +61,10 @@ public:
 protected:
     int d1size{0}; // size of dimension 1
     int d2size{0}; // size of dimension 2
-    std::vector<std::vector<T>> entry{}; // 2 choices: 1: raw array, 2: vector
+    std::vector<std::vector<T>> entry{};
     bool _valid{true};
-    bool shape_equal_to(const Matrix<T> &other) const { return d1size == other.d1size && d2size == other.d2size; };
+    bool shape_equal_to(const Matrix<T> &other) const { return d1size == other.d1size && d2size == other.d2size; }
+
 };
 
 #endif //COURSEPROJECT_MATRIX_TEMPLATE_H
