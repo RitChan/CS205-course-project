@@ -1,5 +1,5 @@
-# CS205-course-project
-
+About {#mainpage}
+===
 matrix project for CS-205
 
 ## Members
@@ -10,7 +10,7 @@ matrix project for CS-205
 
 ## Requirements
 
-Matrix is an important concept introduced in linear algebra. Matrix calculation is widely used in many practical applications, such as image processing and machine learning. Programmers can indeed use many different existing libraries, and in certain cases, programmers are required to design their own matrix calculation libraries for specific implementations. This project will build a new library (do not attempt to directly copy codes from other existing library) that can perform the following operations on the matrix:
+%Matrix is an important concept introduced in linear algebra. %Matrix calculation is widely used in many practical applications, such as image processing and machine learning. Programmers can indeed use many different existing libraries, and in certain cases, programmers are required to design their own matrix calculation libraries for specific implementations. This project will build a new library (do not attempt to directly copy codes from other existing library) that can perform the following operations on the matrix:
 
 1. It supports all matrix sizes, from small fixed-size matrices to arbitrarily large dense matrices, and even sparse matrices (Add: try to use efficient ways to store the sparse matrices).
 2. It supports all standard numeric types, including std::complex, integers, and is easily extensible to custom numeric types.

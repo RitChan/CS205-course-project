@@ -1,31 +1,34 @@
-//
-// Created by chenh on 5/11/2020.
-// Basic tests
-//
+/**
+ * @file test_file_0.cpp
+ * @ingroup test
+ * @brief Most basic functionality tests.
+ */
+
 // include any necessary headers
 #include "matrix_implementation.h"
 
 /* -- Test Tool declaration --- */
-#include <iostream>
-#include "test_assert.h"
-using namespace std;
-typedef int (*TestFunc)();
-enum { PASS = 0, FAILURE = -1 };
+#include "preset.h"
 
-// test declaration
+/** @name Test Declarations */
+/** @{ */
 static int test0();
 static int test1();
+/** @} */
 
-//  global variable (make it static)
-static Matrix<int> matrix;
+/** @name Global Variables */
+/** @{ */
+static Matrix<int> matrix; /**< global matrix variable*/
+/** @} */
 
+/** Execute before every test. */
 static void before() {
     matrix = Matrix<int>();
-    // executed before every test
 }
 
+/** Execute after every test. */
 static void after() {
-    // executed after every test
+
 }
 
 void test_file_0_main() {
@@ -47,8 +50,10 @@ void test_file_0_main() {
     }
 }
 
+/**
+ * @brief Test Matrix(int, int) and Matrix.at(int)
+ */
 static int test0() {
-    // test Matrix(int, int) and Matrix.at(int)
     matrix = Matrix<int>(5, 6);
     assertTrue(matrix.get_d1size() == 5)
     assertTrue(matrix.get_d2size() == 6)
@@ -70,8 +75,10 @@ static int test0() {
     return PASS;
 }
 
+/**
+ * @brief Test matrix.at(i, j)
+ */
 static int test1() {
-    // test matrix.at(i, j)
     matrix = Matrix<int>(5, 6);
     expectException(matrix.at(5, 6))
     assertNoException(matrix.at(4, 5))

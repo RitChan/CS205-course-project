@@ -1,0 +1,939 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CS205 Matrix Project: Matrix&lt; T &gt; 模板类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CS205 Matrix Project
+   </div>
+   <div id="projectbrief">Matrix template library</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="#friends">友元</a> &#124;
+<a href="class_matrix-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">Matrix&lt; T &gt; 模板类 参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Matrix class.  
+ <a href="class_matrix.html#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="matrix__template_8h_source.html">matrix_template.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a9d567e3a121b1be0c3f9c461cab524fe"><td class="memItemLeft" align="right" valign="top"><a id="a9d567e3a121b1be0c3f9c461cab524fe"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a9d567e3a121b1be0c3f9c461cab524fe">Matrix</a> ()</td></tr>
+<tr class="memdesc:a9d567e3a121b1be0c3f9c461cab524fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor where _valid flag is set to false. <br /></td></tr>
+<tr class="separator:a9d567e3a121b1be0c3f9c461cab524fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82df3b75d84010229c5a97c3b93278ca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a82df3b75d84010229c5a97c3b93278ca">Matrix</a> (int <a class="el" href="class_matrix.html#a790804e2cc36b256d90ed51da7fc48da">d1size</a>, int <a class="el" href="class_matrix.html#a5adeb5d37a1719569e84c2524e488f08">d2size</a>)</td></tr>
+<tr class="memdesc:a82df3b75d84010229c5a97c3b93278ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with shape specified.  <a href="class_matrix.html#a82df3b75d84010229c5a97c3b93278ca">更多...</a><br /></td></tr>
+<tr class="separator:a82df3b75d84010229c5a97c3b93278ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad11349720a973607dd32c90c41c1fd6b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#ad11349720a973607dd32c90c41c1fd6b">operator+</a> (const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;other) const</td></tr>
+<tr class="memdesc:ad11349720a973607dd32c90c41c1fd6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads operator "+".  <a href="class_matrix.html#ad11349720a973607dd32c90c41c1fd6b">更多...</a><br /></td></tr>
+<tr class="separator:ad11349720a973607dd32c90c41c1fd6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a414ac57670f9f2c295eb095cff79e8fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a414ac57670f9f2c295eb095cff79e8fb">operator+=</a> (const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;other)</td></tr>
+<tr class="memdesc:a414ac57670f9f2c295eb095cff79e8fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads operator "+=".  <a href="class_matrix.html#a414ac57670f9f2c295eb095cff79e8fb">更多...</a><br /></td></tr>
+<tr class="separator:a414ac57670f9f2c295eb095cff79e8fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60abec113d06926fe684823e30899d74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a60abec113d06926fe684823e30899d74">operator-</a> (const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;other) const</td></tr>
+<tr class="memdesc:a60abec113d06926fe684823e30899d74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads operator "-".  <a href="class_matrix.html#a60abec113d06926fe684823e30899d74">更多...</a><br /></td></tr>
+<tr class="separator:a60abec113d06926fe684823e30899d74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa85fd66aea47fc0354649d8c2fad91f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#aa85fd66aea47fc0354649d8c2fad91f6">operator-=</a> (const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;other)</td></tr>
+<tr class="memdesc:aa85fd66aea47fc0354649d8c2fad91f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads operator "-=".  <a href="class_matrix.html#aa85fd66aea47fc0354649d8c2fad91f6">更多...</a><br /></td></tr>
+<tr class="separator:aa85fd66aea47fc0354649d8c2fad91f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44e5a23ca2e6cb0f93dff64670b8e5ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a44e5a23ca2e6cb0f93dff64670b8e5ca">operator*</a> (const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;other) const</td></tr>
+<tr class="memdesc:a44e5a23ca2e6cb0f93dff64670b8e5ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads operator "*".  <a href="class_matrix.html#a44e5a23ca2e6cb0f93dff64670b8e5ca">更多...</a><br /></td></tr>
+<tr class="separator:a44e5a23ca2e6cb0f93dff64670b8e5ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cee3ed1a270f475d41976418d67e86f"><td class="memItemLeft" align="right" valign="top"><a id="a1cee3ed1a270f475d41976418d67e86f"></a>
+<a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*=</b> (const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;other)</td></tr>
+<tr class="separator:a1cee3ed1a270f475d41976418d67e86f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1a0edc23e3317d31d1aa8639e18fcb7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#aa1a0edc23e3317d31d1aa8639e18fcb7">operator*</a> (const T &amp;other) const</td></tr>
+<tr class="memdesc:aa1a0edc23e3317d31d1aa8639e18fcb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads operator "*".  <a href="class_matrix.html#aa1a0edc23e3317d31d1aa8639e18fcb7">更多...</a><br /></td></tr>
+<tr class="separator:aa1a0edc23e3317d31d1aa8639e18fcb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afad17127621401f88eee7c62a9681155"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#afad17127621401f88eee7c62a9681155">operator*=</a> (const T &amp;other)</td></tr>
+<tr class="memdesc:afad17127621401f88eee7c62a9681155"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads operator "*=".  <a href="class_matrix.html#afad17127621401f88eee7c62a9681155">更多...</a><br /></td></tr>
+<tr class="separator:afad17127621401f88eee7c62a9681155"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70a19b8f152b456fc53ce301c3c98b0f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a70a19b8f152b456fc53ce301c3c98b0f">operator[]</a> (int index)</td></tr>
+<tr class="memdesc:a70a19b8f152b456fc53ce301c3c98b0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads operator "[]".  <a href="class_matrix.html#a70a19b8f152b456fc53ce301c3c98b0f">更多...</a><br /></td></tr>
+<tr class="separator:a70a19b8f152b456fc53ce301c3c98b0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c62454c1630af1d78d6e38542fa34b3"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a6c62454c1630af1d78d6e38542fa34b3">operator[]</a> (int index) const</td></tr>
+<tr class="memdesc:a6c62454c1630af1d78d6e38542fa34b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads operator "[]".  <a href="class_matrix.html#a6c62454c1630af1d78d6e38542fa34b3">更多...</a><br /></td></tr>
+<tr class="separator:a6c62454c1630af1d78d6e38542fa34b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18adf7340195e74e7b8964ddd6083e3f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a18adf7340195e74e7b8964ddd6083e3f">at</a> (int index)</td></tr>
+<tr class="memdesc:a18adf7340195e74e7b8964ddd6083e3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws exception if index is out of range.  <a href="class_matrix.html#a18adf7340195e74e7b8964ddd6083e3f">更多...</a><br /></td></tr>
+<tr class="separator:a18adf7340195e74e7b8964ddd6083e3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f86316477786c3dd367726e3a05d806"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a5f86316477786c3dd367726e3a05d806">at</a> (int index) const</td></tr>
+<tr class="memdesc:a5f86316477786c3dd367726e3a05d806"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws exception if index is out of range.  <a href="class_matrix.html#a5f86316477786c3dd367726e3a05d806">更多...</a><br /></td></tr>
+<tr class="separator:a5f86316477786c3dd367726e3a05d806"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a189cc310de6331205a107ca59de648e3"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a189cc310de6331205a107ca59de648e3">at</a> (int i, int j)</td></tr>
+<tr class="memdesc:a189cc310de6331205a107ca59de648e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a matrix entry.  <a href="class_matrix.html#a189cc310de6331205a107ca59de648e3">更多...</a><br /></td></tr>
+<tr class="separator:a189cc310de6331205a107ca59de648e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b5a7eba4cc57d6ec49d4fe112424629"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a0b5a7eba4cc57d6ec49d4fe112424629">at</a> (int i, int j) const</td></tr>
+<tr class="memdesc:a0b5a7eba4cc57d6ec49d4fe112424629"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a matrix element.  <a href="class_matrix.html#a0b5a7eba4cc57d6ec49d4fe112424629">更多...</a><br /></td></tr>
+<tr class="separator:a0b5a7eba4cc57d6ec49d4fe112424629"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c5b3f710bf0df727c687a679c2f53b3"><td class="memItemLeft" align="right" valign="top"><a id="a9c5b3f710bf0df727c687a679c2f53b3"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a9c5b3f710bf0df727c687a679c2f53b3">max</a> () const</td></tr>
+<tr class="memdesc:a9c5b3f710bf0df727c687a679c2f53b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max element. <br /></td></tr>
+<tr class="separator:a9c5b3f710bf0df727c687a679c2f53b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d6a41f6e75f2190e9bc9711a0011728"><td class="memItemLeft" align="right" valign="top"><a id="a9d6a41f6e75f2190e9bc9711a0011728"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a9d6a41f6e75f2190e9bc9711a0011728">row_max</a> (int row) const</td></tr>
+<tr class="memdesc:a9d6a41f6e75f2190e9bc9711a0011728"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max element in a row. <br /></td></tr>
+<tr class="separator:a9d6a41f6e75f2190e9bc9711a0011728"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62be0126c46b003208f4525f0987e293"><td class="memItemLeft" align="right" valign="top"><a id="a62be0126c46b003208f4525f0987e293"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a62be0126c46b003208f4525f0987e293">col_max</a> (int col) const</td></tr>
+<tr class="memdesc:a62be0126c46b003208f4525f0987e293"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max element in a column. <br /></td></tr>
+<tr class="separator:a62be0126c46b003208f4525f0987e293"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c6b9a03d1c2d67380f1db601821b9fd"><td class="memItemLeft" align="right" valign="top"><a id="a1c6b9a03d1c2d67380f1db601821b9fd"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a1c6b9a03d1c2d67380f1db601821b9fd">min</a> () const</td></tr>
+<tr class="memdesc:a1c6b9a03d1c2d67380f1db601821b9fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Min element. <br /></td></tr>
+<tr class="separator:a1c6b9a03d1c2d67380f1db601821b9fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44aad5226ba9fb717e1779744e299c83"><td class="memItemLeft" align="right" valign="top"><a id="a44aad5226ba9fb717e1779744e299c83"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a44aad5226ba9fb717e1779744e299c83">row_min</a> (int row) const</td></tr>
+<tr class="memdesc:a44aad5226ba9fb717e1779744e299c83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Min element in a row. <br /></td></tr>
+<tr class="separator:a44aad5226ba9fb717e1779744e299c83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82633921d238901ce3a67b4628ae815b"><td class="memItemLeft" align="right" valign="top"><a id="a82633921d238901ce3a67b4628ae815b"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a82633921d238901ce3a67b4628ae815b">col_min</a> (int col) const</td></tr>
+<tr class="memdesc:a82633921d238901ce3a67b4628ae815b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Min element in a column. <br /></td></tr>
+<tr class="separator:a82633921d238901ce3a67b4628ae815b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe92103d3aa2d7b92500bb3650e80b8e"><td class="memItemLeft" align="right" valign="top"><a id="afe92103d3aa2d7b92500bb3650e80b8e"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#afe92103d3aa2d7b92500bb3650e80b8e">sum</a> () const</td></tr>
+<tr class="memdesc:afe92103d3aa2d7b92500bb3650e80b8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum of all elements. <br /></td></tr>
+<tr class="separator:afe92103d3aa2d7b92500bb3650e80b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a960334fbafb04fc6796474fa2b1708c5"><td class="memItemLeft" align="right" valign="top"><a id="a960334fbafb04fc6796474fa2b1708c5"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a960334fbafb04fc6796474fa2b1708c5">row_sum</a> (int row) const</td></tr>
+<tr class="memdesc:a960334fbafb04fc6796474fa2b1708c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum of elements in a row. <br /></td></tr>
+<tr class="separator:a960334fbafb04fc6796474fa2b1708c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad06ed56a49869b3edd7f9c8bd41fc8c9"><td class="memItemLeft" align="right" valign="top"><a id="ad06ed56a49869b3edd7f9c8bd41fc8c9"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#ad06ed56a49869b3edd7f9c8bd41fc8c9">col_sum</a> (int col) const</td></tr>
+<tr class="memdesc:ad06ed56a49869b3edd7f9c8bd41fc8c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum of elements in a column. <br /></td></tr>
+<tr class="separator:ad06ed56a49869b3edd7f9c8bd41fc8c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68f012bff4e2a7bc50b059bd45329cf7"><td class="memItemLeft" align="right" valign="top"><a id="a68f012bff4e2a7bc50b059bd45329cf7"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a68f012bff4e2a7bc50b059bd45329cf7">avg</a> () const</td></tr>
+<tr class="memdesc:a68f012bff4e2a7bc50b059bd45329cf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Average of all elements. <br /></td></tr>
+<tr class="separator:a68f012bff4e2a7bc50b059bd45329cf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d2db261cca2b1550d8626f572ce3725"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="class_eigen_pair.html">EigenPair</a>&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a5d2db261cca2b1550d8626f572ce3725">eigen_decompose</a> () const</td></tr>
+<tr class="memdesc:a5d2db261cca2b1550d8626f572ce3725"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find all eigenvalues and corresponding eigen-vectors.  <a href="class_matrix.html#a5d2db261cca2b1550d8626f572ce3725">更多...</a><br /></td></tr>
+<tr class="separator:a5d2db261cca2b1550d8626f572ce3725"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a650078c4e68d8c618e56c55951997470"><td class="memItemLeft" align="right" valign="top"><a id="a650078c4e68d8c618e56c55951997470"></a>
+<a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a650078c4e68d8c618e56c55951997470">transpose</a> () const</td></tr>
+<tr class="memdesc:a650078c4e68d8c618e56c55951997470"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return transposed matrix. <br /></td></tr>
+<tr class="separator:a650078c4e68d8c618e56c55951997470"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c9b9e182ad7927a807a1e1cb0ba6a07"><td class="memItemLeft" align="right" valign="top"><a id="a6c9b9e182ad7927a807a1e1cb0ba6a07"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a6c9b9e182ad7927a807a1e1cb0ba6a07">trace</a> () const</td></tr>
+<tr class="memdesc:a6c9b9e182ad7927a807a1e1cb0ba6a07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trace of this matrix. <br /></td></tr>
+<tr class="separator:a6c9b9e182ad7927a807a1e1cb0ba6a07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad325065cef54607a6f4119a2bee04e0d"><td class="memItemLeft" align="right" valign="top"><a id="ad325065cef54607a6f4119a2bee04e0d"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#ad325065cef54607a6f4119a2bee04e0d">determinant</a> () const</td></tr>
+<tr class="memdesc:ad325065cef54607a6f4119a2bee04e0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determinant of this matrix. <br /></td></tr>
+<tr class="separator:ad325065cef54607a6f4119a2bee04e0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4aa3fd815c9e2b35685eb11b74e80d0b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a4aa3fd815c9e2b35685eb11b74e80d0b">dot</a> (const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;other) const</td></tr>
+<tr class="memdesc:a4aa3fd815c9e2b35685eb11b74e80d0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO in progress...  <a href="class_matrix.html#a4aa3fd815c9e2b35685eb11b74e80d0b">更多...</a><br /></td></tr>
+<tr class="separator:a4aa3fd815c9e2b35685eb11b74e80d0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7f56a271e0d1ce9139b4f49fa97ae31"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#aa7f56a271e0d1ce9139b4f49fa97ae31">cross</a> (const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;other) const</td></tr>
+<tr class="memdesc:aa7f56a271e0d1ce9139b4f49fa97ae31"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO in progress...  <a href="class_matrix.html#aa7f56a271e0d1ce9139b4f49fa97ae31">更多...</a><br /></td></tr>
+<tr class="separator:aa7f56a271e0d1ce9139b4f49fa97ae31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af944ee1b034c6fc0349c4075b58c5f86"><td class="memItemLeft" align="right" valign="top"><a id="af944ee1b034c6fc0349c4075b58c5f86"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#af944ee1b034c6fc0349c4075b58c5f86">get_d1size</a> () const</td></tr>
+<tr class="memdesc:af944ee1b034c6fc0349c4075b58c5f86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of rows. <br /></td></tr>
+<tr class="separator:af944ee1b034c6fc0349c4075b58c5f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35f055011569c66d4424e538b5f9fad4"><td class="memItemLeft" align="right" valign="top"><a id="a35f055011569c66d4424e538b5f9fad4"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a35f055011569c66d4424e538b5f9fad4">get_d2size</a> () const</td></tr>
+<tr class="memdesc:a35f055011569c66d4424e538b5f9fad4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of columns. <br /></td></tr>
+<tr class="separator:a35f055011569c66d4424e538b5f9fad4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7bc7eb54bce39f96733029672fe9fd3"><td class="memItemLeft" align="right" valign="top"><a id="ab7bc7eb54bce39f96733029672fe9fd3"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#ab7bc7eb54bce39f96733029672fe9fd3">valid</a> () const</td></tr>
+<tr class="memdesc:ab7bc7eb54bce39f96733029672fe9fd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is this matrix valid?. <br /></td></tr>
+<tr class="separator:ab7bc7eb54bce39f96733029672fe9fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:aa41c50f4386b402c8233d371cead8b55"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#aa41c50f4386b402c8233d371cead8b55">shape_equal_to</a> (const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;other) const</td></tr>
+<tr class="memdesc:aa41c50f4386b402c8233d371cead8b55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test whether another matrix has the same number of row and columns with this matrix or not.  <a href="class_matrix.html#aa41c50f4386b402c8233d371cead8b55">更多...</a><br /></td></tr>
+<tr class="separator:aa41c50f4386b402c8233d371cead8b55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:a790804e2cc36b256d90ed51da7fc48da"><td class="memItemLeft" align="right" valign="top"><a id="a790804e2cc36b256d90ed51da7fc48da"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a790804e2cc36b256d90ed51da7fc48da">d1size</a> {0}</td></tr>
+<tr class="memdesc:a790804e2cc36b256d90ed51da7fc48da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of dimension 1. <br /></td></tr>
+<tr class="separator:a790804e2cc36b256d90ed51da7fc48da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5adeb5d37a1719569e84c2524e488f08"><td class="memItemLeft" align="right" valign="top"><a id="a5adeb5d37a1719569e84c2524e488f08"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a5adeb5d37a1719569e84c2524e488f08">d2size</a> {0}</td></tr>
+<tr class="memdesc:a5adeb5d37a1719569e84c2524e488f08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of dimension 2. <br /></td></tr>
+<tr class="separator:a5adeb5d37a1719569e84c2524e488f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9de601c7873a75294de97b82c8367cc"><td class="memItemLeft" align="right" valign="top"><a id="ad9de601c7873a75294de97b82c8367cc"></a>
+std::vector&lt; std::vector&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#ad9de601c7873a75294de97b82c8367cc">entry</a> {}</td></tr>
+<tr class="memdesc:ad9de601c7873a75294de97b82c8367cc"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_matrix.html" title="Matrix class.">Matrix</a> elements. <br /></td></tr>
+<tr class="separator:ad9de601c7873a75294de97b82c8367cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaa3ca4d0425071aee10085dcfaf3ceb"><td class="memItemLeft" align="right" valign="top"><a id="adaa3ca4d0425071aee10085dcfaf3ceb"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#adaa3ca4d0425071aee10085dcfaf3ceb">_valid</a> {true}</td></tr>
+<tr class="memdesc:adaa3ca4d0425071aee10085dcfaf3ceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valid-flag. <br /></td></tr>
+<tr class="separator:adaa3ca4d0425071aee10085dcfaf3ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+友元</h2></td></tr>
+<tr class="memitem:ab8340df47af5e85d5bf633665a526d48"><td class="memTemplParams" colspan="2">template&lt;typename M &gt; </td></tr>
+<tr class="memitem:ab8340df47af5e85d5bf633665a526d48"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; M &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#ab8340df47af5e85d5bf633665a526d48">operator*</a> (const M &amp;c, const <a class="el" href="class_matrix.html">Matrix</a>&lt; M &gt; &amp;<a class="el" href="test__file__2_8cpp.html#ae8caefba38309e562ce04aba19b924ef">matrix</a>)</td></tr>
+<tr class="memdesc:ab8340df47af5e85d5bf633665a526d48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads operator "*" for M and Matrix&lt;M&gt; to support "scalar * matrix".  <a href="class_matrix.html#ab8340df47af5e85d5bf633665a526d48">更多...</a><br /></td></tr>
+<tr class="separator:ab8340df47af5e85d5bf633665a526d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86cd6aa9c5fb9eb093ea86aef9315813"><td class="memTemplParams" colspan="2"><a id="a86cd6aa9c5fb9eb093ea86aef9315813"></a>
+template&lt;typename M &gt; </td></tr>
+<tr class="memitem:a86cd6aa9c5fb9eb093ea86aef9315813"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; M &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator/</b> (const <a class="el" href="class_matrix.html">Matrix</a>&lt; M &gt; &amp;<a class="el" href="test__file__2_8cpp.html#ae8caefba38309e562ce04aba19b924ef">matrix</a>, const M &amp;c)</td></tr>
+<tr class="separator:a86cd6aa9c5fb9eb093ea86aef9315813"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><h3>template&lt;typename T&gt;<br />
+class Matrix&lt; T &gt;</h3>
+
+<p>Matrix class. </p>
+<p>The interface is inevitably complicated due to the requirements. </p>
+
+<p class="definition">在文件 <a class="el" href="matrix__template_8h_source.html">matrix_template.h</a> 第 <a class="el" href="matrix__template_8h_source.html#l00028">28</a> 行定义.</p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a82df3b75d84010229c5a97c3b93278ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82df3b75d84010229c5a97c3b93278ca">&#9670;&nbsp;</a></span>Matrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;::<a class="el" href="class_matrix.html">Matrix</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>d1size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>d2size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor with shape specified. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">d1size</td><td>Number of rows. </td></tr>
+    <tr><td class="paramname">d2size</td><td>Number of columns. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00013">13</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00278">Matrix&lt; T &gt;::_valid</a>, <a class="el" href="matrix__template_8h_source.html#l00275">Matrix&lt; T &gt;::d1size</a> , 以及 <a class="el" href="matrix__template_8h_source.html#l00276">Matrix&lt; T &gt;::d2size</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a189cc310de6331205a107ca59de648e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a189cc310de6331205a107ca59de648e3">&#9670;&nbsp;</a></span>at() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T&amp; <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;::at </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get a matrix entry. </p>
+<p>Throws exception if index is out of range.</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Row index. </td></tr>
+    <tr><td class="paramname">j</td><td>Column index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Selected element. </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="matrix__template_8h_source.html">matrix_template.h</a> 第 <a class="el" href="matrix__template_8h_source.html#l00144">144</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00277">Matrix&lt; T &gt;::entry</a>.</p>
+
+</div>
+</div>
+<a id="a0b5a7eba4cc57d6ec49d4fe112424629"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b5a7eba4cc57d6ec49d4fe112424629">&#9670;&nbsp;</a></span>at() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const T&amp; <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;::at </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get a matrix element. </p>
+<p>Throws exception if index is out of range.</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Row index. </td></tr>
+    <tr><td class="paramname">j</td><td>Column index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Selected element. </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="matrix__template_8h_source.html">matrix_template.h</a> 第 <a class="el" href="matrix__template_8h_source.html#l00155">155</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00277">Matrix&lt; T &gt;::entry</a>.</p>
+
+</div>
+</div>
+<a id="a18adf7340195e74e7b8964ddd6083e3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18adf7340195e74e7b8964ddd6083e3f">&#9670;&nbsp;</a></span>at() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; T &gt; &amp; <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;::at </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Throws exception if index is out of range. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Row index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Row selected by index. </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00125">125</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="test__file__1_8cpp_source.html#l00176">test7()</a>.</p>
+
+</div>
+</div>
+<a id="a5f86316477786c3dd367726e3a05d806"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f86316477786c3dd367726e3a05d806">&#9670;&nbsp;</a></span>at() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;T&gt;&amp; <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;::at </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Throws exception if index is out of range. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Row index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Row selected by index. </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="matrix__template_8h_source.html">matrix_template.h</a> 第 <a class="el" href="matrix__template_8h_source.html#l00133">133</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00277">Matrix&lt; T &gt;::entry</a>.</p>
+
+</div>
+</div>
+<a id="aa7f56a271e0d1ce9139b4f49fa97ae31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7f56a271e0d1ce9139b4f49fa97ae31">&#9670;&nbsp;</a></span>cross()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;::cross </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>TODO in progress... </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00221">221</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a4aa3fd815c9e2b35685eb11b74e80d0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4aa3fd815c9e2b35685eb11b74e80d0b">&#9670;&nbsp;</a></span>dot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;::dot </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>TODO in progress... </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00226">226</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a5d2db261cca2b1550d8626f572ce3725"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d2db261cca2b1550d8626f572ce3725">&#9670;&nbsp;</a></span>eigen_decompose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::list&lt; <a class="el" href="class_eigen_pair.html">EigenPair</a>&lt; T &gt; &gt; <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;::eigen_decompose</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Find all eigenvalues and corresponding eigen-vectors. </p>
+<dl class="section return"><dt>返回</dt><dd>A list of <a class="el" href="class_eigen_pair.html" title="&lt;Eigen-value, Eigen-vector&gt; pair structure.">EigenPair</a> </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00206">206</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a44e5a23ca2e6cb0f93dff64670b8e5ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44e5a23ca2e6cb0f93dff64670b8e5ca">&#9670;&nbsp;</a></span>operator*() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Overloads operator "*". </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Another operand. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Newly constructed matrix resulting from "*". </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00087">87</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00275">Matrix&lt; T &gt;::d1size</a> , 以及 <a class="el" href="matrix__template_8h_source.html#l00276">Matrix&lt; T &gt;::d2size</a>.</p>
+
+</div>
+</div>
+<a id="aa1a0edc23e3317d31d1aa8639e18fcb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1a0edc23e3317d31d1aa8639e18fcb7">&#9670;&nbsp;</a></span>operator*() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Overloads operator "*". </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Scalar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Newly constructed matrix resulting from "*". </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00104">104</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00277">Matrix&lt; T &gt;::entry</a>.</p>
+
+</div>
+</div>
+<a id="afad17127621401f88eee7c62a9681155"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afad17127621401f88eee7c62a9681155">&#9670;&nbsp;</a></span>operator*=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp; <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;::operator*= </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Overloads operator "*=". </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Scalar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Reference to *this. </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00019">19</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ad11349720a973607dd32c90c41c1fd6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad11349720a973607dd32c90c41c1fd6b">&#9670;&nbsp;</a></span>operator+()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Overloads operator "+". </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Another matrix for "+". </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Newly constructed matrix resulting from "+". </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00029">29</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00278">Matrix&lt; T &gt;::_valid</a>, <a class="el" href="matrix__template_8h_source.html#l00275">Matrix&lt; T &gt;::d1size</a> , 以及 <a class="el" href="matrix__template_8h_source.html#l00276">Matrix&lt; T &gt;::d2size</a>.</p>
+
+</div>
+</div>
+<a id="a414ac57670f9f2c295eb095cff79e8fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a414ac57670f9f2c295eb095cff79e8fb">&#9670;&nbsp;</a></span>operator+=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp; <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;::operator+= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Overloads operator "+=". </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Matrix to be added into *this. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Reference to *this. </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00045">45</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a60abec113d06926fe684823e30899d74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60abec113d06926fe684823e30899d74">&#9670;&nbsp;</a></span>operator-()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;::operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Overloads operator "-". </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Another operand. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Newly constructed matrix resulting from "-". </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00058">58</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aa85fd66aea47fc0354649d8c2fad91f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa85fd66aea47fc0354649d8c2fad91f6">&#9670;&nbsp;</a></span>operator-=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp; <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;::operator-= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Overloads operator "-=". </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Matrix to be subtracted from *this. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Reference to *this. </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00073">73</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a70a19b8f152b456fc53ce301c3c98b0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70a19b8f152b456fc53ce301c3c98b0f">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; T &gt; &amp; <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Overloads operator "[]". </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Row index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Row selected by index. </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00115">115</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a6c62454c1630af1d78d6e38542fa34b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c62454c1630af1d78d6e38542fa34b3">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; T &gt; &amp; <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Overloads operator "[]". </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Row index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Row selected by index. </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00120">120</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aa41c50f4386b402c8233d371cead8b55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa41c50f4386b402c8233d371cead8b55">&#9670;&nbsp;</a></span>shape_equal_to()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;::shape_equal_to </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Test whether another matrix has the same number of row and columns with this matrix or not. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Another matrix. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">在文件 <a class="el" href="matrix__template_8h_source.html">matrix_template.h</a> 第 <a class="el" href="matrix__template_8h_source.html#l00286">286</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00275">Matrix&lt; T &gt;::d1size</a> , 以及 <a class="el" href="matrix__template_8h_source.html#l00276">Matrix&lt; T &gt;::d2size</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">友元及相关函数文档</h2>
+<a id="ab8340df47af5e85d5bf633665a526d48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8340df47af5e85d5bf633665a526d48">&#9670;&nbsp;</a></span>operator*</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;typename M &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;M&gt; operator* </td>
+          <td>(</td>
+          <td class="paramtype">const M &amp;&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a>&lt; M &gt; &amp;&#160;</td>
+          <td class="paramname"><em>matrix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Overloads operator "*" for M and Matrix&lt;M&gt; to support "scalar * matrix". </p>
+<dl class="section return"><dt>返回</dt><dd>New constructed matrix resulting from "*". </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/<a class="el" href="matrix__template_8h_source.html">matrix_template.h</a></li>
+<li>src/<a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
+</body>
+</html>
