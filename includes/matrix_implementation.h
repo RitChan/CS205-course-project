@@ -203,8 +203,8 @@ T Matrix<T>::avg() const {
 }
 
 template<typename T>
-std::list<std::pair<T, std::vector<T>>> Matrix<T>::eigen_decompose() const {
-    return std::list<EigenPair>();
+std::list<EigenPair<T>> Matrix<T>::eigen_decompose() const {
+    return std::list<EigenPair<T>>();
 }
 
 template<typename T>
