@@ -199,7 +199,7 @@ T Matrix<T>::sum() const {
 
 template<typename T>
 T Matrix<T>::avg() const {
-    return nullptr;
+    return '\0';
 }
 
 template<typename T>
@@ -232,32 +232,32 @@ Matrix<T> Matrix<T>::dot(const Matrix<T> &other) const {
 
 template<typename T>
 T Matrix<T>::row_max(int row) const {
-    return nullptr;
+    return '\0';
 }
 
 template<typename T>
 T Matrix<T>::col_max(int col) const {
-    return nullptr;
+    return '\0';
 }
 
 template<typename T>
 T Matrix<T>::row_min(int row) const {
-   return nullptr;
+   return '\0';
 }
 
 template<typename T>
 T Matrix<T>::col_min(int col) const {
-    return nullptr;
+    return '\0';
 }
 
 template<typename T>
 T Matrix<T>::row_sum(int row) const {
-    return nullptr;
+    return '\0';
 }
 
 template<typename T>
 T Matrix<T>::col_sum(int col) const {
-    return nullptr;
+    return '\0';
 }
 
-#endif //COURSEPROJECT_MATRIX_H
+#endif //COURSEPROJECT_MATRIX_IMPLEMENTATION_H

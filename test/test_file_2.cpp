@@ -16,7 +16,12 @@ enum { PASS, FAILURE };
 static int test0();
 static int test1();
 static int test2();
-
+static int test3();
+static int test4();
+static int test5();
+static int test6();
+static int test7();
+static int test8();
 
 //  global variable (static)
 Matrix<int> matrix;
@@ -43,7 +48,13 @@ void test_file_2_main() {
             // all TestFunc registered here
             test0,
             test1,
-            test2
+            test2,
+            test3,
+            test4,
+            test5,
+            test6,
+            test7,
+            test8,
     };
     int i = 0, ret;
     for (TestFunc test: tests) {
@@ -76,3 +87,44 @@ static int test2() {
     return PASS;
 }
 
+static int test3() {
+    // test row_max
+    assertTrue(matrix.row_max(0) == 3)
+    assertTrue(matrix.row_max(1) == 6)
+    return PASS;
+}
+
+static int test4() {
+    // test row_min
+    assertTrue(matrix.row_min(0) == 1)
+    assertTrue(matrix.row_min(1) == 4)
+    return PASS;
+}
+
+static int test5() {
+    // test row_sum
+    assertTrue(matrix.row_sum(0) == 6)
+    assertTrue(matrix.row_sum(1) == 15)
+    return PASS;
+}
+
+static int test6() {
+    // test col_min
+    assertTrue(matrix.col_min(0) == 1)
+    assertTrue(matrix.col_min(2) == 3)
+    return PASS;
+}
+
+static int test7() {
+    // test col_max
+    assertTrue(matrix.col_max(0) == 4)
+    assertTrue(matrix.col_max(1) == 5)
+    return PASS;
+}
+
+static int test8() {
+    // test col_sum
+    assertTrue(matrix.col_sum(0) == 5)
+    assertTrue(matrix.col_sum(2) == 9)
+    return PASS;
+}

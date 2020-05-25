@@ -12,7 +12,7 @@
 template<typename T>
 class Matrix {
 public:
-    typedef std::pair<T, std::vector<T>> EigenPair; // <eigen_value, eigen_vector>
+    typedef std::pair<T, std::vector<T>> EigenPair; // <eigen_value, eigen_vector> TODO make the type more readable
     Matrix(): _valid(false) {};
     Matrix(int d1size, int d2size);
     // TODO /=, matrix * vector
@@ -40,7 +40,7 @@ public:
     T sum() const;
     T row_sum(int row) const;
     T col_sum(int col) const;
-    T avg() const;
+    T avg() const; // TODO discuss about the signature
     std::list<EigenPair> eigen_decompose() const;
     T trace() const;
     T determinant() const;
