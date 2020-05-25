@@ -2,8 +2,8 @@
 // Created by chenh on 5/11/2020.
 //
 // TODO 10 functions remained
-#ifndef COURSEPROJECT_MATRIX_H
-#define COURSEPROJECT_MATRIX_H
+#ifndef COURSEPROJECT_MATRIX_IMPLEMENTATION_H
+#define COURSEPROJECT_MATRIX_IMPLEMENTATION_H
 #include "matrix_template.h"
 #include <iostream>
 #include <vector>

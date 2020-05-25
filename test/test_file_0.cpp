@@ -3,7 +3,7 @@
 // Basic tests
 //
 // include any necessary headers
-#include "matrix.h"
+#include "matrix_implementation.h"
 
 /* -- Test Tool declaration --- */
 #include <iostream>

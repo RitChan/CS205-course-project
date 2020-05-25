@@ -2,7 +2,7 @@
 // Created by chenh on 5/16/2020.
 //
 // include any necessary headers
-#include "matrix.h"
+#include "matrix_implementation.h"
 #include "test_assert.h"
 
 // Test Tool declarations
