@@ -63,6 +63,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public 类型</a> &#124;
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="#pro-methods">Protected 成员函数</a> &#124;
 <a href="#pro-attribs">Protected 属性</a> &#124;
@@ -78,6 +79,12 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="matrix__template_8h_source.html">matrix_template.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:a1bd9a9c5d158cffa37eb7e2272e6705f"><td class="memItemLeft" align="right" valign="top"><a id="a1bd9a9c5d158cffa37eb7e2272e6705f"></a>
+typedef std::initializer_list&lt; std::initializer_list&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>MatrixInitList</b></td></tr>
+<tr class="separator:a1bd9a9c5d158cffa37eb7e2272e6705f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a9d567e3a121b1be0c3f9c461cab524fe"><td class="memItemLeft" align="right" valign="top"><a id="a9d567e3a121b1be0c3f9c461cab524fe"></a>
@@ -87,6 +94,9 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:a82df3b75d84010229c5a97c3b93278ca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a82df3b75d84010229c5a97c3b93278ca">Matrix</a> (int <a class="el" href="class_matrix.html#a790804e2cc36b256d90ed51da7fc48da">d1size</a>, int <a class="el" href="class_matrix.html#a5adeb5d37a1719569e84c2524e488f08">d2size</a>)</td></tr>
 <tr class="memdesc:a82df3b75d84010229c5a97c3b93278ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with shape specified.  <a href="class_matrix.html#a82df3b75d84010229c5a97c3b93278ca">更多...</a><br /></td></tr>
 <tr class="separator:a82df3b75d84010229c5a97c3b93278ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae365c841625ade5a6ea61e239440268"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#aae365c841625ade5a6ea61e239440268">Matrix</a> (MatrixInitList init_list)</td></tr>
+<tr class="memdesc:aae365c841625ade5a6ea61e239440268"><td class="mdescLeft">&#160;</td><td class="mdescRight">Easy initialization with nested two dimensional initializer_list.  <a href="class_matrix.html#aae365c841625ade5a6ea61e239440268">更多...</a><br /></td></tr>
+<tr class="separator:aae365c841625ade5a6ea61e239440268"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad11349720a973607dd32c90c41c1fd6b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#ad11349720a973607dd32c90c41c1fd6b">operator+</a> (const <a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; &amp;other) const</td></tr>
 <tr class="memdesc:ad11349720a973607dd32c90c41c1fd6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads operator "+".  <a href="class_matrix.html#ad11349720a973607dd32c90c41c1fd6b">更多...</a><br /></td></tr>
 <tr class="separator:ad11349720a973607dd32c90c41c1fd6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -246,10 +256,10 @@ class Matrix&lt; T &gt;</h3>
 <p>Matrix class. </p>
 <p>The interface is inevitably complicated due to the requirements. </p>
 
-<p class="definition">在文件 <a class="el" href="matrix__template_8h_source.html">matrix_template.h</a> 第 <a class="el" href="matrix__template_8h_source.html#l00028">28</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="matrix__template_8h_source.html">matrix_template.h</a> 第 <a class="el" href="matrix__template_8h_source.html#l00029">29</a> 行定义.</p>
 </div><h2 class="groupheader">构造及析构函数说明</h2>
 <a id="a82df3b75d84010229c5a97c3b93278ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82df3b75d84010229c5a97c3b93278ca">&#9670;&nbsp;</a></span>Matrix()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a82df3b75d84010229c5a97c3b93278ca">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -285,9 +295,43 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00013">13</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00014">14</a> 行定义.</p>
 
-<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00278">Matrix&lt; T &gt;::_valid</a>, <a class="el" href="matrix__template_8h_source.html#l00275">Matrix&lt; T &gt;::d1size</a> , 以及 <a class="el" href="matrix__template_8h_source.html#l00276">Matrix&lt; T &gt;::d2size</a>.</p>
+<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00298">Matrix&lt; T &gt;::_valid</a>, <a class="el" href="matrix__template_8h_source.html#l00295">Matrix&lt; T &gt;::d1size</a> , 以及 <a class="el" href="matrix__template_8h_source.html#l00296">Matrix&lt; T &gt;::d2size</a>.</p>
+
+</div>
+</div>
+<a id="aae365c841625ade5a6ea61e239440268"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae365c841625ade5a6ea61e239440268">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;::<a class="el" href="class_matrix.html">Matrix</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;::MatrixInitList&#160;</td>
+          <td class="paramname"><em>init_list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Easy initialization with nested two dimensional initializer_list. </p>
+<p>Usage example: Matrix&lt;int&gt; matrix{ {1, 2, 3}, {4, 5, 6}, {7, 8, 9} }</p>
+<p>Note that length of rows must be consistent. If row lengths are not consistent, the matrix is constructed with <a class="el" href="class_matrix.html#ab7bc7eb54bce39f96733029672fe9fd3" title="Is this matrix valid?.">Matrix::valid()</a> flag set to false.</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">init_list</td><td>Nested initializer_list. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00021">21</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00298">Matrix&lt; T &gt;::_valid</a>, <a class="el" href="matrix__template_8h_source.html#l00295">Matrix&lt; T &gt;::d1size</a>, <a class="el" href="matrix__template_8h_source.html#l00296">Matrix&lt; T &gt;::d2size</a> , 以及 <a class="el" href="matrix__template_8h_source.html#l00297">Matrix&lt; T &gt;::entry</a>.</p>
 
 </div>
 </div>
@@ -339,9 +383,9 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>Selected element. </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="matrix__template_8h_source.html">matrix_template.h</a> 第 <a class="el" href="matrix__template_8h_source.html#l00144">144</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="matrix__template_8h_source.html">matrix_template.h</a> 第 <a class="el" href="matrix__template_8h_source.html#l00164">164</a> 行定义.</p>
 
-<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00277">Matrix&lt; T &gt;::entry</a>.</p>
+<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00297">Matrix&lt; T &gt;::entry</a>.</p>
 
 </div>
 </div>
@@ -392,9 +436,9 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>Selected element. </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="matrix__template_8h_source.html">matrix_template.h</a> 第 <a class="el" href="matrix__template_8h_source.html#l00155">155</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="matrix__template_8h_source.html">matrix_template.h</a> 第 <a class="el" href="matrix__template_8h_source.html#l00175">175</a> 行定义.</p>
 
-<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00277">Matrix&lt; T &gt;::entry</a>.</p>
+<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00297">Matrix&lt; T &gt;::entry</a>.</p>
 
 </div>
 </div>
@@ -425,7 +469,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>Row selected by index. </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00125">125</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00151">151</a> 行定义.</p>
 
 <p class="reference">被这些函数引用 <a class="el" href="test__file__1_8cpp_source.html#l00176">test7()</a>.</p>
 
@@ -466,9 +510,9 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>Row selected by index. </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="matrix__template_8h_source.html">matrix_template.h</a> 第 <a class="el" href="matrix__template_8h_source.html#l00133">133</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="matrix__template_8h_source.html">matrix_template.h</a> 第 <a class="el" href="matrix__template_8h_source.html#l00153">153</a> 行定义.</p>
 
-<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00277">Matrix&lt; T &gt;::entry</a>.</p>
+<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00297">Matrix&lt; T &gt;::entry</a>.</p>
 
 </div>
 </div>
@@ -499,7 +543,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>返回</dt><dd></dd></dl>
 
-<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00221">221</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00247">247</a> 行定义.</p>
 
 </div>
 </div>
@@ -530,7 +574,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>返回</dt><dd></dd></dl>
 
-<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00226">226</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00252">252</a> 行定义.</p>
 
 </div>
 </div>
@@ -551,7 +595,7 @@ template&lt;typename T &gt; </div>
 <p>Find all eigenvalues and corresponding eigen-vectors. </p>
 <dl class="section return"><dt>返回</dt><dd>A list of <a class="el" href="class_eigen_pair.html" title="&lt;Eigen-value, Eigen-vector&gt; pair structure.">EigenPair</a> </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00206">206</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00232">232</a> 行定义.</p>
 
 </div>
 </div>
@@ -582,9 +626,9 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>Newly constructed matrix resulting from "*". </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00087">87</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00113">113</a> 行定义.</p>
 
-<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00275">Matrix&lt; T &gt;::d1size</a> , 以及 <a class="el" href="matrix__template_8h_source.html#l00276">Matrix&lt; T &gt;::d2size</a>.</p>
+<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00295">Matrix&lt; T &gt;::d1size</a> , 以及 <a class="el" href="matrix__template_8h_source.html#l00296">Matrix&lt; T &gt;::d2size</a>.</p>
 
 </div>
 </div>
@@ -615,9 +659,9 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>Newly constructed matrix resulting from "*". </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00104">104</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00130">130</a> 行定义.</p>
 
-<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00277">Matrix&lt; T &gt;::entry</a>.</p>
+<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00297">Matrix&lt; T &gt;::entry</a>.</p>
 
 </div>
 </div>
@@ -648,7 +692,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>Reference to *this. </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00019">19</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00045">45</a> 行定义.</p>
 
 </div>
 </div>
@@ -679,9 +723,9 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>Newly constructed matrix resulting from "+". </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00029">29</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00055">55</a> 行定义.</p>
 
-<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00278">Matrix&lt; T &gt;::_valid</a>, <a class="el" href="matrix__template_8h_source.html#l00275">Matrix&lt; T &gt;::d1size</a> , 以及 <a class="el" href="matrix__template_8h_source.html#l00276">Matrix&lt; T &gt;::d2size</a>.</p>
+<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00298">Matrix&lt; T &gt;::_valid</a>, <a class="el" href="matrix__template_8h_source.html#l00295">Matrix&lt; T &gt;::d1size</a> , 以及 <a class="el" href="matrix__template_8h_source.html#l00296">Matrix&lt; T &gt;::d2size</a>.</p>
 
 </div>
 </div>
@@ -712,7 +756,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>Reference to *this. </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00045">45</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00071">71</a> 行定义.</p>
 
 </div>
 </div>
@@ -743,7 +787,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>Newly constructed matrix resulting from "-". </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00058">58</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00084">84</a> 行定义.</p>
 
 </div>
 </div>
@@ -774,7 +818,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>Reference to *this. </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00073">73</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00099">99</a> 行定义.</p>
 
 </div>
 </div>
@@ -805,7 +849,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>Row selected by index. </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00115">115</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00141">141</a> 行定义.</p>
 
 </div>
 </div>
@@ -836,7 +880,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>Row selected by index. </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00120">120</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00146">146</a> 行定义.</p>
 
 </div>
 </div>
@@ -874,9 +918,9 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">在文件 <a class="el" href="matrix__template_8h_source.html">matrix_template.h</a> 第 <a class="el" href="matrix__template_8h_source.html#l00286">286</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="matrix__template_8h_source.html">matrix_template.h</a> 第 <a class="el" href="matrix__template_8h_source.html#l00306">306</a> 行定义.</p>
 
-<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00275">Matrix&lt; T &gt;::d1size</a> , 以及 <a class="el" href="matrix__template_8h_source.html#l00276">Matrix&lt; T &gt;::d2size</a>.</p>
+<p class="reference">引用了 <a class="el" href="matrix__template_8h_source.html#l00295">Matrix&lt; T &gt;::d1size</a> , 以及 <a class="el" href="matrix__template_8h_source.html#l00296">Matrix&lt; T &gt;::d2size</a>.</p>
 
 </div>
 </div>

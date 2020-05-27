@@ -14,6 +14,7 @@
 /** @{ */
 static int test0();
 static int test1();
+static int test2();
 /** @} */
 
 /** @name Global Variables */
@@ -35,7 +36,8 @@ void test_file_0_main() {
     TestFunc tests[] = {
             // all TestFunc registered here
             test0,
-            test1
+            test1,
+            test2
     };
     int i = 0, ret;
     for (TestFunc test: tests) {
@@ -87,3 +89,30 @@ static int test1() {
     return PASS;
 }
 
+/**
+ * Test initializer_init constructor.
+ */
+static int test2() {
+    Matrix<int> matrix1{
+            {1, 2, 3},
+            {4, 5, 6}
+    };
+    assertTrue(matrix1.valid())
+    assertTrue(matrix1.get_d1size() == 2)
+    assertTrue(matrix1.get_d2size() == 3)
+    assertTrue(matrix1.at(0, 0) == 1)
+    assertTrue(matrix1.at(1, 2) == 6)
+
+    Matrix<int>matrix2{
+            {}
+    };
+    assertTrue(!matrix2.valid())
+
+    Matrix<int>matrix3{
+            {1, 2},
+            {0}
+    };
+    assertTrue(!matrix3.valid())
+
+    return PASS;
+}

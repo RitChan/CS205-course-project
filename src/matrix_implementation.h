@@ -4,15 +4,41 @@
 // TODO 10 functions remained
 #ifndef COURSEPROJECT_MATRIX_IMPLEMENTATION_H
 #define COURSEPROJECT_MATRIX_IMPLEMENTATION_H
+
 #include "matrix_template.h"
 #include <iostream>
 #include <vector>
 
 
 template<typename T>
-Matrix<T>::Matrix(int d1size, int d2size): d1size(d1size), d2size(d2size), entry(d1size, std::vector<T>(d2size)), _valid(true) {
+Matrix<T>::Matrix(int d1size, int d2size): d1size(d1size), d2size(d2size), entry(d1size, std::vector<T>(d2size)),
+                                           _valid(true) {
     if (d1size <= 0 || d2size <= 0)
         _valid = false;
+}
+
+template<typename T>
+Matrix<T>::Matrix(Matrix::MatrixInitList init_list): d1size(init_list.size()), d2size(0), _valid(true) {
+    int i = 0;
+    int j = 0;
+    for (const std::initializer_list<T> &row: init_list) {
+        if (row.size() <= 0 || (d2size > 0 && row.size() != d2size)) {
+            _valid = false;
+            d1size = 0;
+            d2size = 0;
+            entry = std::vector<std::vector<T>>();
+            break;
+        }
+        if (d2size != row.size()) {
+            d2size = row.size();
+            entry = std::vector<std::vector<T>>(d1size, std::vector<T>(d2size, T{}));
+        }
+        d2size = row.size();
+        j = 0;
+        for (T elem: row)
+            entry[i][j++] = elem;
+        i++;
+    }
 }
 
 template<typename T>
@@ -112,7 +138,7 @@ Matrix<T> Matrix<T>::operator*(const T &other) const {
 
 
 template<typename T>
-std::vector <T> &Matrix<T>::operator[](int index) {
+std::vector<T> &Matrix<T>::operator[](int index) {
     return entry[index];
 }
 
@@ -122,7 +148,7 @@ const std::vector<T> &Matrix<T>::operator[](int index) const {
 }
 
 template<typename T>
-std::vector <T> &Matrix<T>::at(int index) {
+std::vector<T> &Matrix<T>::at(int index) {
     return entry.at(index);
 }
 
@@ -242,7 +268,7 @@ T Matrix<T>::col_max(int col) const {
 
 template<typename T>
 T Matrix<T>::row_min(int row) const {
-   return '\0';
+    return '\0';
 }
 
 template<typename T>
@@ -259,5 +285,6 @@ template<typename T>
 T Matrix<T>::col_sum(int col) const {
     return '\0';
 }
+
 
 #endif //COURSEPROJECT_MATRIX_IMPLEMENTATION_H

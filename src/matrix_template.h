@@ -10,6 +10,7 @@
 #include <vector>
 #include <list>
 #include <utility>
+#include <initializer_list>
 
 /**
  * <Eigen-value, Eigen-vector> pair structure.
@@ -27,6 +28,8 @@ class EigenPair {
 template<typename T>
 class Matrix {
 public:
+    typedef std::initializer_list<std::initializer_list<T>> MatrixInitList;
+
     /**
      * Default constructor where _valid flag is set to false.
      */
@@ -39,6 +42,23 @@ public:
      * @param d2size Number of columns.
      */
     Matrix(int d1size, int d2size);
+
+    /**
+     * Easy initialization with nested two dimensional initializer_list.
+     *
+     * Usage example:
+     *     Matrix<int> matrix{
+     *         {1, 2, 3},
+     *         {4, 5, 6},
+     *         {7, 8, 9}
+     *     };
+     *
+     * Note that length of rows must be consistent. If row lengths are not consistent, the matrix is constructed with
+     * Matrix::valid() flag set to false.
+     *
+     * @param init_list Nested initializer_list.
+     */
+    Matrix(MatrixInitList init_list);
 
     /**
      * Overloads operator "+".
