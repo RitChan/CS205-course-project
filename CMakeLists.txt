@@ -3,8 +3,14 @@ project(CourseProject)
 
 set(CMAKE_CXX_STANDARD 14)
 include_directories(src)
-set(MAJOR )
 
-add_executable(CourseProject main.cpp)
-add_executable(test test/test_file_0.cpp test/test_main.cpp test/test_header.h test/test_assert.h test/test_file_1.cpp test/test_file_2.cpp)
-target_include_directories(test PUBLIC test)
+#add_executable(CourseProject main.cpp src/matrix.h)
+add_executable(rtest test/test_file_0.cpp test/test_main.cpp test/test_header.h test/test_assert.h test/test_file_1.cpp test/test_file_2.cpp)
+target_include_directories(rtest PUBLIC rtest)
+
+# GoogleTest
+include_directories(gtestlib/includes/gtest gtestlib/includes)
+find_library(GTEST_LIB gtestd PATHS gtestlib PATH_SUFFIXES lib)
+find_library(GTEST_MAIN_LIB gtest_maind PATHS gtestlib PATH_SUFFIXES lib)
+add_executable(matrix_gtest gtest/basicTest.cpp gtest/operatorTest.cpp gtest/statisticTest.cpp)
+target_link_libraries(matrix_gtest PUBLIC ${GTEST_LIB} PUBLIC ${GTEST_MAIN_LIB})

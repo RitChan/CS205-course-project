@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['determinant_82',['determinant',['../class_matrix.html#ad325065cef54607a6f4119a2bee04e0d',1,'Matrix']]],
-  ['dot_83',['dot',['../class_matrix.html#a4aa3fd815c9e2b35685eb11b74e80d0b',1,'Matrix']]]
+  ['eigen_5fdecompose_49',['eigen_decompose',['../class_matrix.html#a5d2db261cca2b1550d8626f572ce3725',1,'Matrix']]]
 ];

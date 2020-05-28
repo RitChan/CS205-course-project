@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['col_5fmax_9',['col_max',['../class_matrix.html#a62be0126c46b003208f4525f0987e293',1,'Matrix']]],
-  ['col_5fmin_10',['col_min',['../class_matrix.html#a82633921d238901ce3a67b4628ae815b',1,'Matrix']]],
-  ['col_5fsum_11',['col_sum',['../class_matrix.html#ad06ed56a49869b3edd7f9c8bd41fc8c9',1,'Matrix']]],
-  ['cross_12',['cross',['../class_matrix.html#aa7f56a271e0d1ce9139b4f49fa97ae31',1,'Matrix']]]
+  ['d1size_8',['d1size',['../class_matrix.html#a790804e2cc36b256d90ed51da7fc48da',1,'Matrix']]],
+  ['d2size_9',['d2size',['../class_matrix.html#a5adeb5d37a1719569e84c2524e488f08',1,'Matrix']]],
+  ['determinant_10',['determinant',['../class_matrix.html#ad325065cef54607a6f4119a2bee04e0d',1,'Matrix']]],
+  ['dot_11',['dot',['../class_matrix.html#a4aa3fd815c9e2b35685eb11b74e80d0b',1,'Matrix']]]
 ];

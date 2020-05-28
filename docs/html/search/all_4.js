@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['d1size_13',['d1size',['../class_matrix.html#a790804e2cc36b256d90ed51da7fc48da',1,'Matrix']]],
-  ['d2size_14',['d2size',['../class_matrix.html#a5adeb5d37a1719569e84c2524e488f08',1,'Matrix']]],
-  ['determinant_15',['determinant',['../class_matrix.html#ad325065cef54607a6f4119a2bee04e0d',1,'Matrix']]],
-  ['dot_16',['dot',['../class_matrix.html#a4aa3fd815c9e2b35685eb11b74e80d0b',1,'Matrix']]]
+  ['eigen_5fdecompose_12',['eigen_decompose',['../class_matrix.html#a5d2db261cca2b1550d8626f572ce3725',1,'Matrix']]],
+  ['eigenpair_13',['EigenPair',['../class_eigen_pair.html',1,'']]],
+  ['entry_14',['entry',['../class_matrix.html#ad9de601c7873a75294de97b82c8367cc',1,'Matrix']]]
 ];

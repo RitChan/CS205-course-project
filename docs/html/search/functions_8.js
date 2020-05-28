@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['row_5fmax_98',['row_max',['../class_matrix.html#a9d6a41f6e75f2190e9bc9711a0011728',1,'Matrix']]],
-  ['row_5fmin_99',['row_min',['../class_matrix.html#a44aad5226ba9fb717e1779744e299c83',1,'Matrix']]],
-  ['row_5fsum_100',['row_sum',['../class_matrix.html#a960334fbafb04fc6796474fa2b1708c5',1,'Matrix']]]
+  ['shape_5fequal_5fto_65',['shape_equal_to',['../class_matrix.html#aa41c50f4386b402c8233d371cead8b55',1,'Matrix']]],
+  ['sum_66',['sum',['../class_matrix.html#afe92103d3aa2d7b92500bb3650e80b8e',1,'Matrix']]]
 ];

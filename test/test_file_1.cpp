@@ -1,7 +1,7 @@
 /**
  * @file test_file_1.cpp
  * @ingroup test
- * @brief Operator tests.
+ * @brief Statistic tests.
  */
 
 // include any necessary headers

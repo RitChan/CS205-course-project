@@ -241,12 +241,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 友元</h2></td></tr>
 <tr class="memitem:ab8340df47af5e85d5bf633665a526d48"><td class="memTemplParams" colspan="2">template&lt;typename M &gt; </td></tr>
-<tr class="memitem:ab8340df47af5e85d5bf633665a526d48"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; M &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#ab8340df47af5e85d5bf633665a526d48">operator*</a> (const M &amp;c, const <a class="el" href="class_matrix.html">Matrix</a>&lt; M &gt; &amp;<a class="el" href="test__file__2_8cpp.html#ae8caefba38309e562ce04aba19b924ef">matrix</a>)</td></tr>
+<tr class="memitem:ab8340df47af5e85d5bf633665a526d48"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; M &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#ab8340df47af5e85d5bf633665a526d48">operator*</a> (const M &amp;c, const <a class="el" href="class_matrix.html">Matrix</a>&lt; M &gt; &amp;matrix)</td></tr>
 <tr class="memdesc:ab8340df47af5e85d5bf633665a526d48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads operator "*" for M and Matrix&lt;M&gt; to support "scalar * matrix".  <a href="class_matrix.html#ab8340df47af5e85d5bf633665a526d48">更多...</a><br /></td></tr>
 <tr class="separator:ab8340df47af5e85d5bf633665a526d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86cd6aa9c5fb9eb093ea86aef9315813"><td class="memTemplParams" colspan="2"><a id="a86cd6aa9c5fb9eb093ea86aef9315813"></a>
 template&lt;typename M &gt; </td></tr>
-<tr class="memitem:a86cd6aa9c5fb9eb093ea86aef9315813"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; M &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator/</b> (const <a class="el" href="class_matrix.html">Matrix</a>&lt; M &gt; &amp;<a class="el" href="test__file__2_8cpp.html#ae8caefba38309e562ce04aba19b924ef">matrix</a>, const M &amp;c)</td></tr>
+<tr class="memitem:a86cd6aa9c5fb9eb093ea86aef9315813"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; M &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator/</b> (const <a class="el" href="class_matrix.html">Matrix</a>&lt; M &gt; &amp;matrix, const M &amp;c)</td></tr>
 <tr class="separator:a86cd6aa9c5fb9eb093ea86aef9315813"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
@@ -320,7 +320,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Easy initialization with nested two dimensional initializer_list. </p>
-<p>Usage example: Matrix&lt;int&gt; matrix{ {1, 2, 3}, {4, 5, 6}, {7, 8, 9} }</p>
+<p>Usage example: Matrix&lt;int&gt; matrix{ {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };</p>
 <p>Note that length of rows must be consistent. If row lengths are not consistent, the matrix is constructed with <a class="el" href="class_matrix.html#ab7bc7eb54bce39f96733029672fe9fd3" title="Is this matrix valid?.">Matrix::valid()</a> flag set to false.</p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
@@ -470,8 +470,6 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>返回</dt><dd>Row selected by index. </dd></dl>
 
 <p class="definition">在文件 <a class="el" href="matrix__implementation_8h_source.html">matrix_implementation.h</a> 第 <a class="el" href="matrix__implementation_8h_source.html#l00151">151</a> 行定义.</p>
-
-<p class="reference">被这些函数引用 <a class="el" href="test__file__1_8cpp_source.html#l00176">test7()</a>.</p>
 
 </div>
 </div>

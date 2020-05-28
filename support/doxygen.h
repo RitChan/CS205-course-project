@@ -11,10 +11,4 @@
  * Core module.
  */
 
-/**
- * @defgroup test test
- *
- * Test module.
- */
-
 #endif //COURSEPROJECT_DOXYGEN_H

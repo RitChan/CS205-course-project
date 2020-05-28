@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['eigen_5fdecompose_17',['eigen_decompose',['../class_matrix.html#a5d2db261cca2b1550d8626f572ce3725',1,'Matrix']]],
-  ['eigenpair_18',['EigenPair',['../class_eigen_pair.html',1,'']]],
-  ['entry_19',['entry',['../class_matrix.html#ad9de601c7873a75294de97b82c8367cc',1,'Matrix']]],
-  ['expectexception_20',['expectException',['../test__assert_8h.html#a84565970f9fc74d903d029cbcc7de913',1,'test_assert.h']]]
+  ['get_5fd1size_15',['get_d1size',['../class_matrix.html#af944ee1b034c6fc0349c4075b58c5f86',1,'Matrix']]],
+  ['get_5fd2size_16',['get_d2size',['../class_matrix.html#a35f055011569c66d4424e538b5f9fad4',1,'Matrix']]]
 ];

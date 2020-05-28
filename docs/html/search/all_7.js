@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['main_23',['main',['../test__main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'test_main.cpp']]],
-  ['matrix_24',['Matrix',['../class_matrix.html',1,'Matrix&lt; T &gt;'],['../class_matrix.html#a9d567e3a121b1be0c3f9c461cab524fe',1,'Matrix::Matrix()'],['../class_matrix.html#a82df3b75d84010229c5a97c3b93278ca',1,'Matrix::Matrix(int d1size, int d2size)'],['../class_matrix.html#aae365c841625ade5a6ea61e239440268',1,'Matrix::Matrix(MatrixInitList init_list)'],['../test__file__0_8cpp.html#ae8caefba38309e562ce04aba19b924ef',1,'matrix():&#160;test_file_0.cpp'],['../test__file__1_8cpp.html#ae8caefba38309e562ce04aba19b924ef',1,'matrix():&#160;test_file_1.cpp'],['../test__file__2_8cpp.html#ae8caefba38309e562ce04aba19b924ef',1,'matrix():&#160;test_file_2.cpp'],['../group__matrix.html',1,'(全局命名空间)']]],
-  ['matrix_5ftemplate_2eh_25',['matrix_template.h',['../matrix__template_8h.html',1,'']]],
-  ['max_26',['max',['../class_matrix.html#a9c5b3f710bf0df727c687a679c2f53b3',1,'Matrix']]],
-  ['min_27',['min',['../class_matrix.html#a1c6b9a03d1c2d67380f1db601821b9fd',1,'Matrix']]]
+  ['operator_2a_22',['operator*',['../class_matrix.html#a44e5a23ca2e6cb0f93dff64670b8e5ca',1,'Matrix::operator*(const Matrix&lt; T &gt; &amp;other) const'],['../class_matrix.html#aa1a0edc23e3317d31d1aa8639e18fcb7',1,'Matrix::operator*(const T &amp;other) const'],['../class_matrix.html#ab8340df47af5e85d5bf633665a526d48',1,'Matrix::operator*()']]],
+  ['operator_2a_3d_23',['operator*=',['../class_matrix.html#afad17127621401f88eee7c62a9681155',1,'Matrix']]],
+  ['operator_2b_24',['operator+',['../class_matrix.html#ad11349720a973607dd32c90c41c1fd6b',1,'Matrix']]],
+  ['operator_2b_3d_25',['operator+=',['../class_matrix.html#a414ac57670f9f2c295eb095cff79e8fb',1,'Matrix']]],
+  ['operator_2d_26',['operator-',['../class_matrix.html#a60abec113d06926fe684823e30899d74',1,'Matrix']]],
+  ['operator_2d_3d_27',['operator-=',['../class_matrix.html#aa85fd66aea47fc0354649d8c2fad91f6',1,'Matrix']]],
+  ['operator_5b_5d_28',['operator[]',['../class_matrix.html#a70a19b8f152b456fc53ce301c3c98b0f',1,'Matrix::operator[](int index)'],['../class_matrix.html#a6c62454c1630af1d78d6e38542fa34b3',1,'Matrix::operator[](int index) const']]]
 ];
