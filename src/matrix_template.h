@@ -121,6 +121,14 @@ public:
     Matrix<T> &operator*=(const T &other);
 
     /**
+     * Overloads operator "/"
+     *
+     * @param c scalar.
+     * @return Newly constructed Matrix resulting from "/".
+     */
+    Matrix<T> operator/(const T &c);
+
+    /**
      * Overloads operator "[]".
      *
      * @param index Row index.
@@ -285,18 +293,9 @@ public:
     template<typename M>
     friend Matrix<M> operator*(const M &c, const Matrix<M> &matrix);
 
-    // TODO make it a member function.
-    template<typename M>
-    friend Matrix<M> operator/(const Matrix<M> &matrix, const M &c);
-
     // TODO slicing
     // TODO convolution operations
 protected:
-    int d1size{0}; /**< Size of dimension 1. */
-    int d2size{0}; /**< Size of dimension 2. */
-    std::vector<std::vector<T>> entry{}; /**< Matrix elements. */
-    bool _valid{true}; /**< Valid-flag. */
-
     /**
      * Test whether another matrix has the same number of row and columns with this
      * matrix or not.
@@ -305,6 +304,11 @@ protected:
      */
     bool shape_equal_to(const Matrix<T> &other) const { return d1size == other.d1size && d2size == other.d2size; }
 
+
+    int d1size{0}; /**< Size of dimension 1. */
+    int d2size{0}; /**< Size of dimension 2. */
+    std::vector<std::vector<T>> entry{}; /**< Matrix elements. */
+    bool _valid{true}; /**< Valid-flag. */
 };
 
 #endif //COURSEPROJECT_MATRIX_TEMPLATE_H

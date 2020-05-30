@@ -170,8 +170,8 @@ Matrix<T> &Matrix<T>::operator*=(const Matrix<T> &other) {
 }
 
 template<typename T>
-Matrix<T> operator/(const Matrix<T> &matrix, const T &c) {
-    Matrix<T> ret = matrix; // TODO handle zero division
+Matrix<T> Matrix<T>::operator/(const T &c) {
+    Matrix<T> ret{*this}; // TODO handle zero division
     for (std::vector<T> &v: ret.entry) {
         for (T &e: v)
             e /= c;
