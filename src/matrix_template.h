@@ -270,6 +270,8 @@ public:
      */
     Matrix<T> cross(const Matrix<T> &other) const;
 
+    Matrix<T> hadamard(const Matrix<T> &other) const;
+
     /**
      * Number of rows.
      */
@@ -294,6 +296,8 @@ public:
     friend Matrix<M> operator*(const M &c, const Matrix<M> &matrix);
 
     // TODO slicing
+    Matrix<T> sub_matrix(int row_low, int row_high, int col_low, int col_high);
+    Matrix<T> sub_matrix(std::initializer_list<int> rows, std::initializer_list<int> cols);
     // TODO convolution operations
 protected:
     /**

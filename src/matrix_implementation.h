@@ -249,6 +249,19 @@ Matrix<T> Matrix<T>::cross(const Matrix<T> &other) const {
 }
 
 template<typename T>
+Matrix<T> Matrix<T>::hadamard(const Matrix<T> &other) const {
+    if (!_valid || !other.valid() || !shape_equal_to(other))
+        return Matrix<T>();
+    Matrix<T> ret{*this};
+    for (int i = 0; i < d1size; i++) {
+        for (int j = 0; j < d2size; j++) {
+            ret.at(i, j) *= other.at(i, j);
+        }
+    }
+    return ret;
+}
+
+template<typename T>
 Matrix<T> Matrix<T>::dot(const Matrix<T> &other) const {
     // TODO need more specifications
     if (!shape_equal_to(other) || d1size != 1)
@@ -258,32 +271,64 @@ Matrix<T> Matrix<T>::dot(const Matrix<T> &other) const {
 
 template<typename T>
 T Matrix<T>::row_max(int row) const {
-    return '\0';
+    T best = entry.at(row).at(0);
+    for (int i = 1; i < entry.at(row).size(); i++) {
+        if (entry.at(row).at(i) > best) {
+            best = entry.at(row).at(i);
+        }
+    }
+    return best;
 }
 
 template<typename T>
 T Matrix<T>::col_max(int col) const {
-    return '\0';
+    T best = entry.at(0).at(col);
+    for (int i = 1; i < entry.size(); i++) {
+        if (entry.at(i).at(col) > best) {
+            best = entry.at(i).at(col);
+        }
+    }
+    return best;
 }
 
 template<typename T>
 T Matrix<T>::row_min(int row) const {
-    return '\0';
+    T best = entry.at(row).at(0);
+    for (int i = 1; i < entry.at(row).size(); i++) {
+        if (entry.at(row).at(i) < best) {
+            best = entry.at(row).at(i);
+        }
+    }
+    return best;
 }
 
 template<typename T>
 T Matrix<T>::col_min(int col) const {
-    return '\0';
+    T best = entry.at(0).at(col);
+    for (int i = 1; i < entry.size(); i++) {
+        if (entry.at(i).at(col) < best) {
+            best = entry.at(i).at(col);
+        }
+    }
+    return best;
 }
 
 template<typename T>
 T Matrix<T>::row_sum(int row) const {
-    return '\0';
+    T sum = entry.at(row).at(0);
+    for (int i = 1; i < entry.at(row).size(); i++) {
+        sum += entry.at(row).at(i);
+    }
+    return sum;
 }
 
 template<typename T>
 T Matrix<T>::col_sum(int col) const {
-    return '\0';
+    T sum = entry.at(0).at(col);
+    for (int i = 1; i < entry.size(); i++) {
+        sum += entry.at(i).at(col);
+    }
+    return sum;
 }
 
 

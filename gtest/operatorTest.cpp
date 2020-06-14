@@ -139,3 +139,24 @@ TEST_F(Operator, selfMinusTest) {
 
     ASSERT_TRUE(!(matrix -= Matrix<int>(1, 10)).valid());
 }
+
+/**
+ * Test matrix::hadamard
+ */
+TEST_F(Operator, hadamardProduct) {
+    Matrix<int> other1{
+            {2, 2},
+            {2, 2}
+    };
+    Matrix<int> other2{
+            {1, 2, 3},
+            {2, 3, 4}
+    };
+    auto result1 = matrix.hadamard(other1);
+    auto result2 = matrix.hadamard(other2);
+
+    ASSERT_TRUE(result1.valid());
+    EXPECT_EQ(result1.at(0, 0), 2);
+    EXPECT_EQ(result1.at(1, 1), 8);
+    ASSERT_TRUE(!result2.valid());
+}
