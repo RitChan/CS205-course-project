@@ -164,12 +164,6 @@ Matrix<T> operator*(const T &c, const Matrix<T> &matrix) {
 }
 
 template<typename T>
-Matrix<T> &Matrix<T>::operator*=(const Matrix<T> &other) {
-    static Matrix<T> INVALID;
-    return INVALID;
-}
-
-template<typename T>
 Matrix<T> Matrix<T>::operator/(const T &c) {
     Matrix<T> ret{*this}; // TODO handle zero division
     for (std::vector<T> &v: ret.entry) {

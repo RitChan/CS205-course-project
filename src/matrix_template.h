@@ -101,9 +101,6 @@ public:
      */
     Matrix<T> operator*(const Matrix<T> &other) const;
 
-    // TODO delete this function
-    Matrix<T> &operator*=(const Matrix<T> &other);
-
     /**
      * Overloads operator "*".
      *
