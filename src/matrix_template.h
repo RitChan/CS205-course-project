@@ -46,6 +46,10 @@ public:
 
     Matrix<T> &operator=(Matrix<T> &&other) noexcept;
 
+    bool operator==(const Matrix<T> &other) const;
+
+    bool operator!=(const Matrix<T> &other) const { return !(*this == other); }
+
     // TODO /=, matrix * vector
     Matrix<T> operator+(const Matrix<T> &other) const;
 

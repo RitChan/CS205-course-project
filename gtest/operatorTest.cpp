@@ -163,7 +163,7 @@ TEST_F(Operator, hadamardProduct) {
 }
 
 TEST_F(Operator, selfMultiplyMatrix) {
-    Matrix<int> other1 {
+    Matrix<int> other1{
             {0, 1},
             {2, 3}
     };
@@ -229,4 +229,57 @@ TEST_F(Operator, swapRows) {
     ASSERT_EQ(matrix.at(0, 0), 3);
     ASSERT_EQ(matrix.at(1, 1), 2);
     ASSERT_ANY_THROW(matrix.swap_rows(100, 1));
+}
+
+TEST_F(Operator, equality) {
+    Matrix<int> equal_matrix{
+            {1, 2},
+            {3, 4}
+    };
+
+    Matrix<int> diff_matrix1{
+            {1, 1},
+            {2, 4}
+    };
+
+    Matrix<int> diff_matrix2{
+            {1, 2, 3},
+            {2, 4, 5}
+    };
+
+    ASSERT_TRUE(matrix == equal_matrix);
+    ASSERT_FALSE(matrix == diff_matrix1);
+    ASSERT_FALSE(matrix == diff_matrix2);
+}
+
+TEST_F(Operator, gaussianEliminate) {
+    Matrix<double> d_matrix{
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+    };
+
+    Matrix<double> expected1{
+            {1, 2, 3},
+            {0, -3, -6},
+            {0, 0, 0}
+    };
+
+    Matrix<double> expected2{
+            {1, 2, 3},
+            {0, 1, 2},
+            {0, 0, 0}
+    };
+
+    auto res1 = d_matrix.gaussian_eliminate();
+    ASSERT_TRUE(res1.valid());
+    ASSERT_EQ(res1.get_d1size(), 3);
+    ASSERT_EQ(res1.get_d2size(), 3);
+    EXPECT_EQ(res1, expected1);
+
+    auto res2 = d_matrix.gaussian_eliminate(true);
+    ASSERT_TRUE(res2.valid());
+    ASSERT_EQ(res2.get_d1size(), 3);
+    ASSERT_EQ(res2.get_d2size(), 3);
+    EXPECT_EQ(res2, expected2);
 }

@@ -51,7 +51,7 @@ Matrix<T>::Matrix(const Matrix<T> &other) {
 }
 
 template<typename T>
-Matrix<T>::Matrix(Matrix<T> &&other) noexcept{
+Matrix<T>::Matrix(Matrix<T> &&other) noexcept {
     *this = std::forward<Matrix<T>>(other);
 }
 
@@ -86,6 +86,19 @@ template<typename T>
 Matrix<T> &Matrix<T>::operator=(Matrix<T> &&other) noexcept {
     Matrix<T>::swap(*this, other);
     return *this;
+}
+
+template<typename T>
+bool Matrix<T>::operator==(const Matrix<T> &other) const {
+    if (!shape_equal_to(other))
+        return false;
+    for(size_t i = 0; i < d1size; i++) {
+        for (size_t j = 0; j < d2size; j++) {
+            if (at(i, j) != other.at(i, j))
+                return false;
+        }
+    }
+    return true;
 }
 
 template<typename T>
@@ -361,7 +374,7 @@ T Matrix<T>::col_sum(int col) const {
 
 template<typename T>
 Matrix<T> &Matrix<T>::operator*=(const Matrix<T> &other) {
-    if(!other.valid() || other.d1size != this->d2size) {
+    if (!other.valid() || other.d1size != this->d2size) {
         _valid = false;
         return *this;
     }
@@ -382,7 +395,6 @@ Matrix<T> &Matrix<T>::operator*=(const std::vector<T> &vec) {
 }
 
 
-
 template<typename T>
 void Matrix<T>::release() {
     delete entry;
@@ -392,7 +404,7 @@ void Matrix<T>::release() {
 template<typename T>
 void Matrix<T>::swap(Matrix<T> &left, Matrix<T> &right) {
     size_t temp_size;
-    T* temp_ptr;
+    T *temp_ptr;
     bool temp_bool;
 
     temp_size = left.d1size;
@@ -434,6 +446,66 @@ void Matrix<T>::swap_rows(int r0, int r1) {
     }
 }
 
+/**
+ * Refer to github matrix implementation.
+ * @see https://github.com/akalicki/matrix
+ */
+template<typename T>
+Matrix<T> Matrix<T>::gaussian_eliminate(bool row_reduced) {
+    Matrix<T> ret(*this);
+    bool pivot_found; // whether current row has a pivot or not
+    int i = 0;
+    int j = 0;
+    while (i < d1size) {
+        pivot_found = false;
+        while (j < d2size && !pivot_found) {
+            // not zero -> pivot
+            if (ret.at(i, j) != 0) {
+                pivot_found = true;
+                break;
+            }
+            // find possible row exchange
+            int max_row = i;
+            int max_at_j = 0; // max element at j-th col
+            for (int k = i + 1; k < d1size; k++) {
+                if (max_at_j < ret.at(k, j)) {
+                    max_row = k;
+                    max_at_j = ret.at(k, j);
+                }
+            }
+            if (max_row != i) {
+                ret.swap_rows(i, max_row);
+                pivot_found = true;
+            } else {
+                // below (i, j) all are zeros
+                j++;
+            }
+        }
 
+        if (pivot_found) {
+            for (int t = i + 1; t < d1size; ++t) {
+                T factor = ret.at(t, j) / ret.at(i, j);
+                for (int s = j + 1; s < d2size; ++s) {
+                    ret.at(t, s) = ret.at(t, s) - ret.at(i, s) * factor;
+                    // TODO tackle precision problem
+                }
+                ret.at(t, j) = 0;
+            }
+
+            if (row_reduced) {
+                T denominator = ret.at(i, j);
+                ret.at(i, j) = 1;
+                for (int k = j+1; k < d2size; k++) {
+                    ret.at(i, k) /= denominator;
+                }
+            }
+        }
+
+        i++;
+        j++;
+    }
+
+    return ret;
+}
 
 #endif //COURSEPROJECT_MATRIX_IMPLEMENTATION_H
