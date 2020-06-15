@@ -238,8 +238,8 @@ T Matrix<T>::determinant() const {
 }
 
 template<typename T>
-Matrix<T> Matrix<T>::cross(const Matrix<T> &other) const {
-    return Matrix<T>();
+std::vector<T> Matrix<T>::cross(const Matrix<T> &other) const {
+    throw std::exception();
 }
 
 template<typename T>

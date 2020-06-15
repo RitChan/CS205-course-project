@@ -277,7 +277,7 @@ public:
      * @param other
      * @return
      */
-    Matrix<T> cross(const Matrix<T> &other) const;
+    std::vector<T> cross(const Matrix<T> &other) const;
 
     Matrix<T> hadamard(const Matrix<T> &other) const;
 
