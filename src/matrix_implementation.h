@@ -325,5 +325,11 @@ T Matrix<T>::col_sum(int col) const {
     return sum;
 }
 
+template<typename T>
+Matrix<T> &Matrix<T>::operator*=(const Matrix<T> &other) {
+    _valid = false;
+    return *this;
+}
+
 
 #endif //COURSEPROJECT_MATRIX_IMPLEMENTATION_H

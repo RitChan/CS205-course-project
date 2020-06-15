@@ -102,7 +102,7 @@ public:
     Matrix<T> operator*(const Matrix<T> &other) const;
 
     /**
-     * Overloads operator "*".
+     * @overload
      *
      * @param other Scalar.
      * @return Newly constructed matrix resulting from "*".
@@ -116,6 +116,11 @@ public:
      * @return Reference to *this.
      */
     Matrix<T> &operator*=(const T &other);
+
+    /**
+     * Overloads operator "*="
+     */
+     Matrix<T> &operator*=(const Matrix<T> &other);
 
     /**
      * Overloads operator "/"

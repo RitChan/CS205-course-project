@@ -160,3 +160,22 @@ TEST_F(Operator, hadamardProduct) {
     EXPECT_EQ(result1.at(1, 1), 8);
     ASSERT_TRUE(!result2.valid());
 }
+
+TEST_F(Operator, selfMultiplyMatrix) {
+    Matrix<int> other1 {
+            {0, 1},
+            {2, 3}
+    };
+
+    matrix *= other1;
+
+    ASSERT_TRUE(matrix.valid());
+    EXPECT_EQ(matrix.at(0, 0), 4);
+    EXPECT_EQ(matrix.at(0, 1), 7);
+    EXPECT_EQ(matrix.at(1, 0), 8);
+    EXPECT_EQ(matrix.at(1, 1), 15);
+
+    Matrix<int> other2(4, 5);
+    matrix *= other2;
+    ASSERT_FALSE(!matrix.valid());
+}
