@@ -6,6 +6,7 @@
 
 #include "gtest.h"
 #include "matrix.h"
+#include <vector>
 
 
 class Operator : public ::testing::Test {
@@ -178,4 +179,36 @@ TEST_F(Operator, selfMultiplyMatrix) {
     Matrix<int> other2(4, 5);
     matrix *= other2;
     ASSERT_FALSE(!matrix.valid());
+}
+
+TEST_F(Operator, multiplyVector) {
+    std::vector<int> vec1 = {2, 3};
+    std::vector<int> vec2 = {1, 2, 3};
+
+    ASSERT_NO_FATAL_FAILURE(matrix * vec1);
+    EXPECT_ANY_THROW(matrix * vec2);
+
+    auto res = matrix * vec1;
+
+    ASSERT_EQ(res.at(0), 8);
+    ASSERT_EQ(res.at(1), 18);
+}
+
+TEST_F(Operator, selfMultiplyVector) {
+    std::vector<int> vec1 = {2, 3};
+    std::vector<int> vec2 = {1, 2, 3};
+
+    matrix *= vec1;
+    ASSERT_TRUE(matrix.valid());
+    ASSERT_EQ(matrix.get_d1size(), 2);
+    ASSERT_EQ(matrix.get_d2size(), 1);
+    EXPECT_EQ(matrix.at(0, 0), 8);
+    EXPECT_EQ(matrix.at(1, 0), 18);
+
+    matrix *= vec2;
+    ASSERT_FALSE(matrix.valid());
+}
+
+TEST_F(Operator, crossProduct) {
+    // TODO in progress...
 }

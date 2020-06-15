@@ -164,7 +164,7 @@ Matrix<T> operator*(const T &c, const Matrix<T> &matrix) {
 }
 
 template<typename T>
-Matrix<T> Matrix<T>::operator/(const T &c) {
+Matrix<T> Matrix<T>::operator/(const T &c) const {
     Matrix<T> ret{*this}; // TODO handle zero division
     for (std::vector<T> &v: ret.entry) {
         for (T &e: v)
@@ -331,5 +331,15 @@ Matrix<T> &Matrix<T>::operator*=(const Matrix<T> &other) {
     return *this;
 }
 
+template<typename T>
+std::vector<T> Matrix<T>::operator*(const std::vector<T> &vec) const {
+    throw std::exception();
+}
+
+template<typename T>
+Matrix<T> &Matrix<T>::operator*=(const std::vector<T> &vec) {
+    _valid = false;
+    return *this;
+}
 
 #endif //COURSEPROJECT_MATRIX_IMPLEMENTATION_H

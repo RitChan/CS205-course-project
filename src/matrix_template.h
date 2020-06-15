@@ -110,6 +110,11 @@ public:
     Matrix<T> operator*(const T &other) const;
 
     /**
+     * Matrix * vector
+     */
+     std::vector<T> operator*(const std::vector<T> &vec) const;
+
+    /**
      * Overloads operator "*=".
      *
      * @param other Scalar.
@@ -122,13 +127,15 @@ public:
      */
      Matrix<T> &operator*=(const Matrix<T> &other);
 
+     Matrix<T> &operator*=(const std::vector<T> &vec);
+
     /**
      * Overloads operator "/"
      *
      * @param c scalar.
      * @return Newly constructed Matrix resulting from "/".
      */
-    Matrix<T> operator/(const T &c);
+    Matrix<T> operator/(const T &c) const;
 
     /**
      * Overloads operator "[]".
