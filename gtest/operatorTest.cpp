@@ -212,3 +212,21 @@ TEST_F(Operator, selfMultiplyVector) {
 TEST_F(Operator, crossProduct) {
     // TODO in progress...
 }
+
+TEST_F(Operator, reshape) {
+    ASSERT_FALSE(matrix.reshape(1, 100));
+    ASSERT_TRUE(matrix.reshape(1, 4));
+    ASSERT_EQ(matrix.get_d1size(), 1);
+    ASSERT_EQ(matrix.get_d2size(), 4);
+    ASSERT_EQ(matrix.at(0, 0), 1);
+    ASSERT_EQ(matrix.at(0, 1), 2);
+    ASSERT_EQ(matrix.at(0, 2), 3);
+    ASSERT_EQ(matrix.at(0, 3), 4);
+}
+
+TEST_F(Operator, swapRows) {
+    matrix.swap_rows(0, 1);
+    ASSERT_EQ(matrix.at(0, 0), 3);
+    ASSERT_EQ(matrix.at(1, 1), 2);
+    ASSERT_ANY_THROW(matrix.swap_rows(100, 1));
+}

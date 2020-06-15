@@ -412,4 +412,28 @@ void Matrix<T>::swap(Matrix<T> &left, Matrix<T> &right) {
     right._valid = temp_bool;
 }
 
+template<typename T>
+bool Matrix<T>::reshape(size_t row, size_t col) {
+    if (row * col != d1size * d2size)
+        return false;
+    d1size = row;
+    d2size = col;
+    return true;
+}
+
+template<typename T>
+void Matrix<T>::swap_rows(int r0, int r1) {
+    if (r0 < 0 || r0 >= d1size || r1 < 0 || r1 >= d2size) {
+        throw std::out_of_range("swap_rows: out_of_range");
+    }
+    T temp;
+    for (int j = 0; j < d2size; j++) {
+        temp = at(r0, j);
+        at(r0, j) = at(r1, j);
+        at(r1, j) = temp;
+    }
+}
+
+
+
 #endif //COURSEPROJECT_MATRIX_IMPLEMENTATION_H

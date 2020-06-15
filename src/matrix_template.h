@@ -75,8 +75,6 @@ public:
 
     const T &at(int i, int j) const { return entry[i * d2size + j]; };
 
-    size_t num_elem() const { return d1size * d2size; }
-
     T max() const;
 
     T row_max(int row) const;
@@ -110,6 +108,12 @@ public:
     std::vector<T> cross(const Matrix<T> &other) const;
 
     Matrix<T> hadamard(const Matrix<T> &other) const;
+
+    Matrix<T> gaussian_eliminate(bool row_reduced = false);
+
+    void swap_rows(int r0, int r1);
+
+    bool reshape(size_t row, size_t col);
 
     int get_d1size() const { return d1size; };
 
