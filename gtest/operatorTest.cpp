@@ -178,7 +178,7 @@ TEST_F(Operator, selfMultiplyMatrix) {
 
     Matrix<int> other2(4, 5);
     matrix *= other2;
-    ASSERT_FALSE(!matrix.valid());
+    ASSERT_FALSE(matrix.valid());
 }
 
 TEST_F(Operator, multiplyVector) {

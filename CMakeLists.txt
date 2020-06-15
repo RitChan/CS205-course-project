@@ -14,3 +14,7 @@ find_library(GTEST_LIB gtestd PATHS gtestlib PATH_SUFFIXES lib)
 find_library(GTEST_MAIN_LIB gtest_maind PATHS gtestlib PATH_SUFFIXES lib)
 add_executable(matrix_gtest gtest/basicTest.cpp gtest/operatorTest.cpp gtest/statisticTest.cpp)
 target_link_libraries(matrix_gtest PUBLIC ${GTEST_LIB} PUBLIC ${GTEST_MAIN_LIB})
+
+# demo
+add_executable(demo demo/simple_ann.cpp)
+target_include_directories(demo PUBLIC demo)

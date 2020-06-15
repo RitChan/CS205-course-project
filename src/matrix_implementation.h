@@ -393,7 +393,16 @@ Matrix<T> &Matrix<T>::operator*=(const Matrix<T> &other) {
 
 template<typename T>
 std::vector<T> Matrix<T>::operator*(const std::vector<T> &vec) const {
-    throw std::exception();
+    if (d2size != vec.size())
+        throw std::exception();
+    std::vector<T> ret(d1size);
+    for (int i = 0; i < d1size; i++) {
+        ret[i] = T{};
+        for (int j = 0; j < d2size; j++) {
+            ret[i] += at(i, j) * vec[j];
+        }
+    }
+    return ret;
 }
 
 template<typename T>

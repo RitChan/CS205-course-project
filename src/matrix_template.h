@@ -17,6 +17,7 @@
  */
 template<typename T>
 class EigenPair {
+public:
     T val;
     std::vector<T> vec;
 };
