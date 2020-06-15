@@ -96,3 +96,31 @@ TEST_F(Statistic, colSum) {
     ASSERT_TRUE(matrix.col_sum(0) == 5);
     ASSERT_TRUE(matrix.col_sum(2) == 9);
 }
+
+TEST_F(Statistic, determinant) {
+    Matrix<double> d_matrix1{
+            {1, 2},
+            {3, 4}
+    };
+
+    Matrix<double> d_matrix2{
+            {1, 2, 3},
+            {4, 5, 6},
+            {5, 7, 10}
+    };
+
+    Matrix<double> d_matrix3{
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+    };
+
+    auto det1 = d_matrix1.determinant();
+    ASSERT_DOUBLE_EQ(det1, -2);
+
+    auto det2 = d_matrix2.determinant();
+    ASSERT_DOUBLE_EQ(det2, -3);
+
+    auto det3 = d_matrix3.determinant();
+    ASSERT_DOUBLE_EQ(det3, 0);
+}

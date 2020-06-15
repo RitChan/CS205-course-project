@@ -281,7 +281,15 @@ T Matrix<T>::trace() const {
 
 template<typename T>
 T Matrix<T>::determinant() const {
-    return nullptr;
+    if (d1size != d2size)
+        throw std::exception();
+    T det;
+    Matrix<T> row_reduced = gaussian_eliminate();
+    det = row_reduced.at(0, 0);
+    for (int k = 1; k < d1size; k++) {
+        det *= row_reduced.at(k, k);
+    }
+    return det;
 }
 
 template<typename T>
@@ -451,7 +459,7 @@ void Matrix<T>::swap_rows(int r0, int r1) {
  * @see https://github.com/akalicki/matrix
  */
 template<typename T>
-Matrix<T> Matrix<T>::gaussian_eliminate(bool row_reduced) {
+Matrix<T> Matrix<T>::gaussian_eliminate(bool row_reduced) const {
     Matrix<T> ret(*this);
     bool pivot_found; // whether current row has a pivot or not
     int i = 0;
