@@ -11,10 +11,15 @@
 
 
 template<typename T>
-Matrix<T>::Matrix(int d1size, int d2size): d1size(d1size), d2size(d2size), entry(d1size, std::vector<T>(d2size)),
+Matrix<T>::Matrix(int d1size, int d2size): d1size(d1size), d2size(d2size),
                                            _valid(true) {
-    if (d1size <= 0 || d2size <= 0)
+    if (d1size <= 0 || d2size <= 0) {
         _valid = false;
+        entry = nullptr;
+        return;
+    }
+    entry = new T[d1size * d2size];
+    memset(entry, 0, sizeof(T) * d1size * d2size);
 }
 
 template<typename T>
@@ -26,26 +31,68 @@ Matrix<T>::Matrix(Matrix::MatrixInitList init_list): d1size(init_list.size()), d
             _valid = false;
             d1size = 0;
             d2size = 0;
-            entry = std::vector<std::vector<T>>();
+            release();
             break;
         }
         if (d2size != row.size()) {
             d2size = row.size();
-            entry = std::vector<std::vector<T>>(d1size, std::vector<T>(d2size, T{}));
+            entry = new T[d1size * d2size];
         }
-        d2size = row.size();
         j = 0;
         for (T elem: row)
-            entry[i][j++] = elem;
+            at(i, j++) = elem;
         i++;
     }
 }
 
 template<typename T>
+Matrix<T>::Matrix(const Matrix<T> &other) {
+    *this = other;
+}
+
+template<typename T>
+Matrix<T>::Matrix(Matrix<T> &&other) noexcept{
+    *this = std::forward<Matrix<T>>(other);
+}
+
+template<typename T>
+Matrix<T>::~Matrix() {
+    release();
+}
+
+template<typename T>
+Matrix<T> &Matrix<T>::operator=(const Matrix<T> &other) {
+    if (&other == this)
+        return *this;
+    else if (!other.valid()) {
+        release();
+        _valid = false;
+        d1size = 0;
+        d2size = 0;
+        return *this;
+    }
+    release();
+    d1size = other.d1size;
+    d2size = other.d2size;
+    entry = new T[other.d1size * other.d2size];
+    for (size_t i = 0; i < d1size * d2size; i++) {
+        entry[i] = other.entry[i];
+    }
+    _valid = true;
+    return *this;
+}
+
+template<typename T>
+Matrix<T> &Matrix<T>::operator=(Matrix<T> &&other) noexcept {
+    Matrix<T>::swap(*this, other);
+    return *this;
+}
+
+template<typename T>
 Matrix<T> &Matrix<T>::operator*=(const T &other) {
-    for (std::vector<T> &v: entry) {
-        for (T &e: v) {
-            e *= other;
+    for (int i = 0; i < d1size; i++) {
+        for (int j = 0; j < d2size; j++) {
+            at(i, j) *= other;
         }
     }
     return *this;
@@ -61,7 +108,7 @@ Matrix<T> Matrix<T>::operator+(const Matrix<T> &other) const {
     ret = *this;
     for (int i = 0; i < ret.d1size; i++) {
         for (int j = 0; j < ret.d2size; j++) {
-            ret[i][j] += other[i][j];
+            ret.at(i, j) += other.at(i, j);
         }
     }
     return ret;
@@ -74,7 +121,7 @@ Matrix<T> &Matrix<T>::operator+=(const Matrix<T> &other) {
         return INVALID;
     for (int i = 0; i < d1size; i++) {
         for (int j = 0; j < d2size; j++) {
-            entry[i][j] += other[i][j];
+            at(i, j) += other.at(i, j);
         }
     }
     return *this;
@@ -89,7 +136,7 @@ Matrix<T> Matrix<T>::operator-(const Matrix<T> &other) const {
     ret = *this;
     for (int i = 0; i < d1size; i++) {
         for (int j = 0; j < d2size; j++) {
-            ret[i][j] -= other[i][j];
+            ret.at(i, j) -= other.at(i, j);
         }
     }
     return ret;
@@ -102,7 +149,7 @@ Matrix<T> &Matrix<T>::operator-=(const Matrix<T> &other) {
         return INVALID;
     for (int i = 0; i < d1size; i++) {
         for (int j = 0; j < d2size; j++) {
-            entry[i][j] -= other[i][j];
+            at(i, j) -= other.at(i, j);
         }
     }
     return *this;
@@ -117,9 +164,9 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T> &other) const {
     Matrix<T> ret(d1size, other.d2size);
     for (int i = 0; i < ret.d1size; i++) {
         for (int j = 0; j < ret.d2size; j++) {
-            ret[i][j] = 0;
+            ret.at(i, j) = 0;
             for (int p = 0; p < align_len; p++) {
-                ret[i][j] += entry[i][p] * other[p][j];
+                ret.at(i, j) += at(i, p) * other.at(p, j);
             }
         }
     }
@@ -129,36 +176,22 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T> &other) const {
 template<typename T>
 Matrix<T> Matrix<T>::operator*(const T &other) const {
     Matrix<T> ret = *this;
-    for (std::vector<T> &v: ret.entry) {
-        for (T &e: v)
-            e *= other;
+    for (int i = 0; i < ret.d1size; i++) {
+        for (int j = 0; j < ret.d2size; j++) {
+            ret.at(i, j) *= other;
+        }
     }
     return ret;
 }
 
 
 template<typename T>
-std::vector<T> &Matrix<T>::operator[](int index) {
-    return entry[index];
-}
-
-template<typename T>
-const std::vector<T> &Matrix<T>::operator[](int index) const {
-    return entry[index];
-}
-
-template<typename T>
-std::vector<T> &Matrix<T>::at(int index) {
-    return entry.at(index);
-}
-
-
-template<typename T>
 Matrix<T> operator*(const T &c, const Matrix<T> &matrix) {
     Matrix<T> ret = matrix;
-    for (std::vector<T> &v: ret.entry) {
-        for (T &e: v)
-            e *= c;
+    for (int i = 0; i < ret.d1size; i++) {
+        for (int j = 0; j < ret.d2size; j++) {
+            ret.at(i, j) *= c;
+        }
     }
     return ret;
 }
@@ -166,9 +199,10 @@ Matrix<T> operator*(const T &c, const Matrix<T> &matrix) {
 template<typename T>
 Matrix<T> Matrix<T>::operator/(const T &c) const {
     Matrix<T> ret{*this}; // TODO handle zero division
-    for (std::vector<T> &v: ret.entry) {
-        for (T &e: v)
-            e /= c;
+    for (int i = 0; i < ret.d1size; i++) {
+        for (int j = 0; j < ret.d2size; j++) {
+            ret.at(i, j) /= c;
+        }
     }
     return ret;
 }
@@ -178,7 +212,7 @@ Matrix<T> Matrix<T>::transpose() const {
     Matrix<T> ret(d2size, d1size);
     for (int i = 0; i < d1size; i++) {
         for (int j = 0; j < d2size; j++) {
-            ret[j][i] = entry[i][j];
+            ret.at(j, i) = at(i, j);
         }
     }
     return ret;
@@ -186,10 +220,10 @@ Matrix<T> Matrix<T>::transpose() const {
 
 template<typename T>
 T Matrix<T>::max() const {
-    T max_T = entry.at(0).at(0);
+    T max_T = at(0, 0);
     for (int i = 0; i < d1size; i++) {
         for (int j = 0; j < d2size; j++) {
-            max_T = max_T < entry[i][j] ? entry[i][j] : max_T;
+            max_T = max_T < at(i, j) ? at(i, j) : max_T;
         }
     }
     return max_T;
@@ -197,10 +231,10 @@ T Matrix<T>::max() const {
 
 template<typename T>
 T Matrix<T>::min() const {
-    T min_T = entry.at(0).at(0);
+    T min_T = at(0, 0);
     for (int i = 0; i < d1size; i++) {
         for (int j = 0; j < d2size; j++) {
-            min_T = min_T > entry[i][j] ? entry[i][j] : min_T;
+            min_T = min_T > at(i, j) ? at(i, j) : min_T;
         }
     }
     return min_T;
@@ -208,13 +242,13 @@ T Matrix<T>::min() const {
 
 template<typename T>
 T Matrix<T>::sum() const {
-    T sum_T = entry.at(0).at(0);
+    T sum_T = at(0, 0);
     for (int i = 0; i < d1size; i++) {
         for (int j = 0; j < d2size; j++) {
-            sum_T += entry[i][j];
+            sum_T += at(i, j);
         }
     }
-    return sum_T - entry.at(0).at(0);
+    return sum_T - at(0, 0);
 }
 
 template<typename T>
@@ -265,10 +299,10 @@ Matrix<T> Matrix<T>::dot(const Matrix<T> &other) const {
 
 template<typename T>
 T Matrix<T>::row_max(int row) const {
-    T best = entry.at(row).at(0);
-    for (int i = 1; i < entry.at(row).size(); i++) {
-        if (entry.at(row).at(i) > best) {
-            best = entry.at(row).at(i);
+    T best = at(row, 0);
+    for (int i = 1; i < d2size; i++) {
+        if (at(row, i) > best) {
+            best = at(row, i);
         }
     }
     return best;
@@ -276,10 +310,10 @@ T Matrix<T>::row_max(int row) const {
 
 template<typename T>
 T Matrix<T>::col_max(int col) const {
-    T best = entry.at(0).at(col);
-    for (int i = 1; i < entry.size(); i++) {
-        if (entry.at(i).at(col) > best) {
-            best = entry.at(i).at(col);
+    T best = at(0, col);
+    for (int i = 1; i < d1size; i++) {
+        if (at(i, col) > best) {
+            best = at(i, col);
         }
     }
     return best;
@@ -287,10 +321,10 @@ T Matrix<T>::col_max(int col) const {
 
 template<typename T>
 T Matrix<T>::row_min(int row) const {
-    T best = entry.at(row).at(0);
-    for (int i = 1; i < entry.at(row).size(); i++) {
-        if (entry.at(row).at(i) < best) {
-            best = entry.at(row).at(i);
+    T best = at(row, 0);
+    for (int i = 1; i < d2size; i++) {
+        if (at(row, i) < best) {
+            best = at(row, i);
         }
     }
     return best;
@@ -298,10 +332,10 @@ T Matrix<T>::row_min(int row) const {
 
 template<typename T>
 T Matrix<T>::col_min(int col) const {
-    T best = entry.at(0).at(col);
-    for (int i = 1; i < entry.size(); i++) {
-        if (entry.at(i).at(col) < best) {
-            best = entry.at(i).at(col);
+    T best = at(0, col);
+    for (int i = 1; i < d1size; i++) {
+        if (at(i, col) < best) {
+            best = at(i, col);
         }
     }
     return best;
@@ -309,24 +343,29 @@ T Matrix<T>::col_min(int col) const {
 
 template<typename T>
 T Matrix<T>::row_sum(int row) const {
-    T sum = entry.at(row).at(0);
-    for (int i = 1; i < entry.at(row).size(); i++) {
-        sum += entry.at(row).at(i);
+    T sum = at(row, 0);
+    for (int i = 1; i < d2size; i++) {
+        sum += at(row, i);
     }
     return sum;
 }
 
 template<typename T>
 T Matrix<T>::col_sum(int col) const {
-    T sum = entry.at(0).at(col);
-    for (int i = 1; i < entry.size(); i++) {
-        sum += entry.at(i).at(col);
+    T sum = at(0, col);
+    for (int i = 1; i < d1size; i++) {
+        sum += at(i, col);
     }
     return sum;
 }
 
 template<typename T>
 Matrix<T> &Matrix<T>::operator*=(const Matrix<T> &other) {
+    if(!other.valid() || other.d1size != this->d2size) {
+        _valid = false;
+        return *this;
+    }
+
     _valid = false;
     return *this;
 }
@@ -340,6 +379,37 @@ template<typename T>
 Matrix<T> &Matrix<T>::operator*=(const std::vector<T> &vec) {
     _valid = false;
     return *this;
+}
+
+
+
+template<typename T>
+void Matrix<T>::release() {
+    delete entry;
+    entry = nullptr;
+}
+
+template<typename T>
+void Matrix<T>::swap(Matrix<T> &left, Matrix<T> &right) {
+    size_t temp_size;
+    T* temp_ptr;
+    bool temp_bool;
+
+    temp_size = left.d1size;
+    left.d1size = right.d1size;
+    right.d1size = temp_size;
+
+    temp_size = left.d2size;
+    left.d2size = right.d2size;
+    right.d2size = temp_size;
+
+    temp_ptr = left.entry;
+    left.entry = right.entry;
+    right.entry = temp_ptr;
+
+    temp_bool = left._valid;
+    left._valid = right._valid;
+    right._valid = temp_bool;
 }
 
 #endif //COURSEPROJECT_MATRIX_IMPLEMENTATION_H

@@ -27,9 +27,9 @@ protected:
 TEST_F(Operator, scalarMultiplicationTest) {
     Matrix<int> matrix1 = 2 * matrix;
     Matrix<int> matrix2 = matrix * 2;
-    ASSERT_TRUE(matrix1[0][0] == 2);
-    ASSERT_TRUE(matrix1[1][1] == 8);
-    ASSERT_TRUE(matrix2[0][1] == 4);
+    ASSERT_EQ(matrix1.at(0, 0), 2);
+    ASSERT_EQ(matrix1.at(1, 1), 8);
+    ASSERT_EQ(matrix2.at(0, 1), 4);
 }
 
 /**
@@ -37,8 +37,8 @@ TEST_F(Operator, scalarMultiplicationTest) {
  */
 TEST_F(Operator, scalarSelfMultiplicationTest) {
     matrix *= 2;
-    ASSERT_TRUE(matrix[0][0] == 2);
-    ASSERT_TRUE(matrix[1][1] == 8);
+    ASSERT_TRUE(matrix.at(0, 0) == 2);
+    ASSERT_TRUE(matrix.at(1, 1) == 8);
 }
 
 /**
@@ -47,8 +47,8 @@ TEST_F(Operator, scalarSelfMultiplicationTest) {
 TEST_F(Operator, plusOperatorTest) {
     Matrix<int> sum = matrix + matrix;
     ASSERT_TRUE(sum.valid());
-    ASSERT_TRUE(sum[0][0] == 2);
-    ASSERT_TRUE(sum[1][0] == 6);
+    ASSERT_TRUE(sum.at(0, 0) == 2);
+    ASSERT_TRUE(sum.at(1, 0) == 6);
 
     Matrix<int> invalid_sum = Matrix<int>(1, 3) + matrix;
     ASSERT_TRUE(!invalid_sum.valid());
@@ -60,11 +60,11 @@ TEST_F(Operator, plusOperatorTest) {
 TEST_F(Operator, minusOperatorTest) {
     Matrix<int> diff = matrix - matrix;
     ASSERT_TRUE(diff.valid());
-    ASSERT_TRUE(diff[0][0] == 0);
+    ASSERT_TRUE(diff.at(0, 0) == 0);
 
     Matrix<int> matrix1(matrix.get_d1size(), matrix.get_d2size());
     diff = matrix1 - matrix;
-    ASSERT_TRUE(diff[0][0] == -matrix[0][0]);
+    ASSERT_TRUE(diff.at(0, 0) == -matrix.at(0, 0));
 
     matrix1 = Matrix<int>(1, 20);
     diff = matrix - matrix1;
@@ -76,8 +76,8 @@ TEST_F(Operator, minusOperatorTest) {
  */
 TEST_F(Operator, divisionOperatorTest) {
     Matrix<int> res = matrix / 2;
-    ASSERT_TRUE(res[0][0] == 0);
-    ASSERT_TRUE(res[1][1] == 2);
+    ASSERT_TRUE(res.at(0, 0) == 0);
+    ASSERT_TRUE(res.at(1, 1) == 2);
 }
 
 /**
@@ -91,8 +91,8 @@ TEST_F(Operator, transposeTest) {
     ASSERT_TRUE(matrix1.get_d1size() == 5);
 
     matrix = matrix.transpose();
-    ASSERT_TRUE(matrix[0][0] == 1);
-    ASSERT_TRUE(matrix[1][0] == 2);
+    ASSERT_TRUE(matrix.at(0, 0) == 1);
+    ASSERT_TRUE(matrix.at(1, 0) == 2);
 }
 
 /**
@@ -103,8 +103,8 @@ TEST_F(Operator, selfPlusTest) {
     ASSERT_TRUE(!(matrix += m).valid());
 
     matrix += matrix;
-    ASSERT_TRUE(matrix[0][0] == 2);
-    ASSERT_TRUE(matrix[1][0] == 6);
+    ASSERT_TRUE(matrix.at(0, 0) == 2);
+    ASSERT_TRUE(matrix.at(1, 0) == 6);
 }
 
 /**
@@ -131,12 +131,12 @@ TEST_F(Operator, multiplicationOperatorTest) {
 TEST_F(Operator, selfMinusTest) {
     Matrix<int> other = Matrix<int>(2, 2);
 
-    other[0][1] = 5;
-    other[1][0] = 2;
+    other.at(0, 1) = 5;
+    other.at(1, 0) = 2;
 
     ASSERT_TRUE((matrix -= other).valid());
-    ASSERT_TRUE(matrix[0][1] == -3);
-    ASSERT_TRUE(matrix[1][0] == 1);
+    ASSERT_TRUE(matrix.at(0, 1) == -3);
+    ASSERT_TRUE(matrix.at(1, 0) == 1);
 
     ASSERT_TRUE(!(matrix -= Matrix<int>(1, 10)).valid());
 }

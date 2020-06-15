@@ -34,8 +34,17 @@ public:
 
     Matrix(int d1size, int d2size);
 
-
     Matrix(MatrixInitList init_list);
+
+    Matrix(const Matrix<T> &other);
+
+    Matrix(Matrix<T> &&other) noexcept;
+
+    ~Matrix();
+
+    Matrix<T> &operator=(const Matrix<T> &other);
+
+    Matrix<T> &operator=(Matrix<T> &&other) noexcept;
 
     // TODO /=, matrix * vector
     Matrix<T> operator+(const Matrix<T> &other) const;
@@ -60,17 +69,13 @@ public:
 
     Matrix<T> operator/(const T &c) const;
 
-    std::vector<T> &operator[](int index);
+    T &at(int i, int j) {
+        return entry[i * d2size + j];
+    };
 
-    const std::vector<T> &operator[](int index) const;
+    const T &at(int i, int j) const { return entry[i * d2size + j]; };
 
-    std::vector<T> &at(int index);
-
-    const std::vector<T> &at(int index) const { return entry.at(index); };
-
-    T &at(int i, int j) { return entry.at(i).at(j); };
-
-    const T &at(int i, int j) const { return entry.at(i).at(j); };
+    size_t num_elem() const { return d1size * d2size; }
 
     T max() const;
 
@@ -123,9 +128,13 @@ public:
 protected:
     bool shape_equal_to(const Matrix<T> &other) const { return d1size == other.d1size && d2size == other.d2size; }
 
-    int d1size{0};
-    int d2size{0};
-    std::vector<std::vector<T>> entry{};
+    void release();
+
+    static void swap(Matrix<T> &left, Matrix<T> &right);
+
+    size_t d1size{0};
+    size_t d2size{0};
+    T *entry{nullptr};
     bool _valid{true};
 };
 
