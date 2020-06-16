@@ -22,6 +22,8 @@ TEST_F(SmartArrayTest, makeArrayTest) {
     ASSERT_TRUE(ary.ref_count != nullptr);
     ASSERT_TRUE(ary.elem != nullptr);
     EXPECT_EQ(*ary.ref_count, 1);
+    for (int i = 0; i < 9; i++)
+        EXPECT_EQ(ary[i], 0);
 }
 
 TEST_F(SmartArrayTest, referToTest) {

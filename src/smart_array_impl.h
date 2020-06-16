@@ -23,6 +23,9 @@ template<typename T>
 SmartArray<T> SmartArray<T>::make_array(size_t size) {
     SmartArray<T> ret;
     ret.elem = new T[size];
+    for (std::size_t i = 0; i < size; i++) {
+        ret.elem[i] = 0;
+    }
     ret.ref_count = new unsigned int;
     *ret.ref_count = 1;
     return ret;

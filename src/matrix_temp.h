@@ -76,10 +76,10 @@ public:
     Matrix<T> operator/(const T &c) const;
 
     T &at(int i, int j) {
-        return entry[i * d2size + j];
+        return elem[i * d2size + j];
     };
 
-    const T &at(int i, int j) const { return entry[i * d2size + j]; };
+    const T &at(int i, int j) const { return elem[i * d2size + j]; };
 
     T max() const;
 
@@ -145,6 +145,7 @@ protected:
     size_t d1size{0};
     size_t d2size{0};
     T *entry{nullptr};
+    SmartArray<T> elem{};
     bool _valid{true};
 };
 

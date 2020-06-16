@@ -20,8 +20,8 @@ public:
     SmartArray() = default;
     SmartArray(const SmartArray<T> &other) { *this = other; };
     SmartArray(SmartArray<T> &&other) noexcept { *this = std::forward<SmartArray<T>>(other); };
-    SmartArray<T> &operator=(const SmartArray<T> &other);
-    SmartArray<T> &operator=(SmartArray<T> &&other) noexcept;
+    SmartArray<T> &operator=(const SmartArray<T> &other); // TODO add test
+    SmartArray<T> &operator=(SmartArray<T> &&other) noexcept; // TODO add test
     ~SmartArray();
 
     T &operator[](int index);

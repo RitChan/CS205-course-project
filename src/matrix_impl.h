@@ -18,6 +18,7 @@ Matrix<T>::Matrix(int d1size, int d2size): d1size(d1size), d2size(d2size),
         entry = nullptr;
         return;
     }
+    elem = SmartArray<T>::make_array(d1size * d2size);
     entry = new T[d1size * d2size];
     memset(entry, 0, sizeof(T) * d1size * d2size);
 }
@@ -37,10 +38,11 @@ Matrix<T>::Matrix(Matrix::MatrixInitList init_list): d1size(init_list.size()), d
         if (d2size != row.size()) {
             d2size = row.size();
             entry = new T[d1size * d2size];
+            elem = SmartArray<T>::make_array(d1size * d2size);
         }
         j = 0;
-        for (T elem: row)
-            at(i, j++) = elem;
+        for (T e: row)
+            at(i, j++) = e;
         i++;
     }
 }
@@ -75,8 +77,10 @@ Matrix<T> &Matrix<T>::operator=(const Matrix<T> &other) {
     d1size = other.d1size;
     d2size = other.d2size;
     entry = new T[other.d1size * other.d2size];
+    elem = SmartArray<T>::make_array(other.d1size * other.d2size);
     for (size_t i = 0; i < d1size * d2size; i++) {
         entry[i] = other.entry[i];
+        elem[i] = other.elem[i];
     }
     _valid = true;
     return *this;
@@ -85,6 +89,7 @@ Matrix<T> &Matrix<T>::operator=(const Matrix<T> &other) {
 template<typename T>
 Matrix<T> &Matrix<T>::operator=(Matrix<T> &&other) noexcept {
     Matrix<T>::swap(*this, other);
+    elem = move(other.elem);
     return *this;
 }
 
