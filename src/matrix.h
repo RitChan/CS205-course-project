@@ -6,6 +6,6 @@
 
 #ifndef COURSEPROJECT_MATRIX_H
 #define COURSEPROJECT_MATRIX_H
-#include "matrix_template.h"
-#include "matrix_implementation.h"
+#include "matrix_temp.h"
+#include "matrix_impl.h"
 #endif //COURSEPROJECT_MATRIX_H

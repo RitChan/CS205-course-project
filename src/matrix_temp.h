@@ -4,8 +4,8 @@
  * @brief Defines the template for class Matrix.
  */
 
-#ifndef COURSEPROJECT_MATRIX_TEMPLATE_H
-#define COURSEPROJECT_MATRIX_TEMPLATE_H
+#ifndef COURSEPROJECT_MATRIX_TEMP_H
+#define COURSEPROJECT_MATRIX_TEMP_H
 
 #include "smart_array.h"
 #include <vector>
@@ -148,4 +148,4 @@ protected:
     bool _valid{true};
 };
 
-#endif //COURSEPROJECT_MATRIX_TEMPLATE_H
+#endif //COURSEPROJECT_MATRIX_TEMP_H

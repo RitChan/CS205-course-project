@@ -2,10 +2,10 @@
 // Created by chenh on 5/11/2020.
 //
 // TODO 10 functions remained
-#ifndef COURSEPROJECT_MATRIX_IMPLEMENTATION_H
-#define COURSEPROJECT_MATRIX_IMPLEMENTATION_H
+#ifndef COURSEPROJECT_MATRIX_IMPL_H
+#define COURSEPROJECT_MATRIX_IMPL_H
 
-#include "matrix_template.h"
+#include "matrix_temp.h"
 #include <iostream>
 #include <vector>
 
@@ -525,4 +525,4 @@ Matrix<T> Matrix<T>::gaussian_eliminate(bool row_reduced) const {
     return ret;
 }
 
-#endif //COURSEPROJECT_MATRIX_IMPLEMENTATION_H
+#endif //COURSEPROJECT_MATRIX_IMPL_H
