@@ -348,17 +348,6 @@ T Matrix<T>::col_sum(int col) const {
 }
 
 template<typename T>
-Matrix<T> &Matrix<T>::operator*=(const Matrix<T> &other) {
-    if (!other.valid() || other.d1size != this->d2size) {
-        _valid = false;
-        return *this;
-    }
-
-    _valid = false;
-    return *this;
-}
-
-template<typename T>
 std::vector<T> Matrix<T>::operator*(const std::vector<T> &vec) const {
     if (d2size != vec.size())
         throw std::exception();
@@ -370,12 +359,6 @@ std::vector<T> Matrix<T>::operator*(const std::vector<T> &vec) const {
         }
     }
     return ret;
-}
-
-template<typename T>
-Matrix<T> &Matrix<T>::operator*=(const std::vector<T> &vec) {
-    _valid = false;
-    return *this;
 }
 
 template<typename T>

@@ -72,10 +72,6 @@ public:
 
     Matrix<T> &operator*=(const T &other);
 
-    Matrix<T> &operator*=(const Matrix<T> &other);
-
-    Matrix<T> &operator*=(const std::vector<T> &vec);
-
     Matrix<T> operator/(const T &c) const;
 
     virtual T &at(int i, int j) {
@@ -114,7 +110,7 @@ public:
 
     T determinant() const;
 
-    Matrix<T> dot(const Matrix<T> &other) const; // TODO make a test
+    Matrix<T> dot(const Matrix<T> &other) const;
 
     std::vector<T> cross(const Matrix<T> &other) const;
 

@@ -162,25 +162,6 @@ TEST_F(Operator, hadamardProduct) {
     ASSERT_TRUE(!result2.valid());
 }
 
-TEST_F(Operator, selfMultiplyMatrix) {
-    Matrix<int> other1{
-            {0, 1},
-            {2, 3}
-    };
-
-    matrix *= other1;
-
-    ASSERT_TRUE(matrix.valid());
-    EXPECT_EQ(matrix.at(0, 0), 4);
-    EXPECT_EQ(matrix.at(0, 1), 7);
-    EXPECT_EQ(matrix.at(1, 0), 8);
-    EXPECT_EQ(matrix.at(1, 1), 15);
-
-    Matrix<int> other2(4, 5);
-    matrix *= other2;
-    ASSERT_FALSE(matrix.valid());
-}
-
 TEST_F(Operator, multiplyVector) {
     std::vector<int> vec1 = {2, 3};
     std::vector<int> vec2 = {1, 2, 3};
@@ -192,21 +173,6 @@ TEST_F(Operator, multiplyVector) {
 
     ASSERT_EQ(res.at(0), 8);
     ASSERT_EQ(res.at(1), 18);
-}
-
-TEST_F(Operator, selfMultiplyVector) {
-    std::vector<int> vec1 = {2, 3};
-    std::vector<int> vec2 = {1, 2, 3};
-
-    matrix *= vec1;
-    ASSERT_TRUE(matrix.valid());
-    ASSERT_EQ(matrix.get_d1size(), 2);
-    ASSERT_EQ(matrix.get_d2size(), 1);
-    EXPECT_EQ(matrix.at(0, 0), 8);
-    EXPECT_EQ(matrix.at(1, 0), 18);
-
-    matrix *= vec2;
-    ASSERT_FALSE(matrix.valid());
 }
 
 TEST_F(Operator, crossProduct) {
