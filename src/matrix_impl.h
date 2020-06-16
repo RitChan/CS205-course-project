@@ -6,6 +6,7 @@
 #define COURSEPROJECT_MATRIX_IMPL_H
 
 #include "matrix_temp.h"
+#include "matrix_view.h"
 #include <iostream>
 #include <vector>
 
@@ -49,7 +50,7 @@ Matrix<T> &Matrix<T>::operator=(const Matrix<T> &other) {
     d2size = other.d2size;
     elem = SmartArray<T>::make_array(d1size * d2size);
     for (int i = 0; i < d1size * d2size; i++) {
-        elem[i] = other.elem[i];
+        elem[i] = other.at(i / d2size, i % d2size);
     }
     _valid = other._valid;
     return *this;
@@ -257,6 +258,16 @@ T Matrix<T>::avg() const {
 }
 
 template<typename T>
+T Matrix<T>::col_avg() const {
+    return '\0';
+}
+
+template<typename T>
+T Matrix<T>::row_avg() const {
+    return '\0';
+}
+
+template<typename T>
 std::list<EigenPair<T>> Matrix<T>::eigen_decompose() const {
     return std::list<EigenPair<T>>();
 }
@@ -297,7 +308,7 @@ Matrix<T> Matrix<T>::hadamard(const Matrix<T> &other) const {
     Matrix<T> ret{*this};
     for (int i = 0; i < d1size; i++) {
         for (int j = 0; j < d2size; j++) {
-            ret.at(i, j) *= other.at(i, j);
+            ret.at(i, j) = at(i, j) * other.at(i, j);
         }
     }
     return ret;
@@ -466,6 +477,32 @@ Matrix<T> Matrix<T>::gaussian_eliminated(const bool row_reduced) const {
 
         i++;
         j++;
+    }
+
+    return ret;
+}
+
+template<typename T>
+Matrix<T> Matrix<T>::scan(const Matrix<T> &target) {
+    if (d1size > target.get_d1size() || d2size > target.get_d2size())
+        return Matrix<T>();
+
+    size_t n_row = target.get_d1size() - d1size + 1;
+    size_t n_col = target.get_d2size() - d2size + 1;
+    Matrix<T> ret(n_row, n_col);
+
+    for (int i = 0; i < n_row; i++) {
+        for (int j = 0; j < n_col; j++) {
+            MatrixView<T> view = MatrixView<T>(target, i, i+d1size, j, j+d2size);
+            Matrix<T> emult(view.get_d1size(), view.get_d2size());
+            // element-wise multiplication
+            for (int s = 0; s < emult.get_d1size(); s++) {
+                for (int t = 0; t < emult.get_d2size(); t++) {
+                    emult.at(s, t) = at(s, t) * view.at(s, t);
+                }
+            }
+            ret.at(i, j) = emult.sum();
+        }
     }
 
     return ret;

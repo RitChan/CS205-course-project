@@ -6,7 +6,6 @@
 #include "gtest.h"
 #include "matrix.h"
 
-
 class Statistic : public ::testing::Test {
 protected:
     void SetUp() override {
@@ -139,4 +138,25 @@ TEST_F(Statistic, trace) {
 
     ASSERT_EQ(matrix1.trace(), 5);
     ASSERT_ANY_THROW(matrix2.trace());
+}
+
+TEST_F(Statistic, convolution) {
+    Matrix<int> k{
+            {1, 2},
+            {3, 4}
+    };
+
+    Matrix<int> m{
+            {1, 2, 3, 4},
+            {5, 6, 7, 8},
+            {9, 10, 11, 12}
+    };
+
+    Matrix<int> res = k.scan(m);
+
+    ASSERT_TRUE(res.valid());
+    ASSERT_EQ(res.get_d1size(), 2);
+    ASSERT_EQ(res.get_d2size(), 3);
+    EXPECT_EQ(res.at(0, 0), 44);
+    EXPECT_EQ(res.at(1, 1), 94);
 }

@@ -101,7 +101,11 @@ public:
 
     T col_sum(int col) const;
 
-    T avg() const; // TODO discuss about the signature
+    T avg() const;
+
+    T col_avg() const;
+
+    T row_avg() const;
 
     std::list<EigenPair<T>> eigen_decompose() const;
 
@@ -134,7 +138,7 @@ public:
     template<typename M>
     friend Matrix<M> operator*(const M &c, const Matrix<M> &matrix);
 
-    // TODO convolution operations
+    Matrix<T> scan(const Matrix<T> &target);
 protected:
     bool shape_equal_to(const Matrix<T> &other) const { return d1size == other.d1size && d2size == other.d2size; }
 

@@ -16,11 +16,16 @@ MatrixView<T>::MatrixView(const Matrix<T> &parent, std::vector<size_t> row, std:
     p_d1size = parent.get_d1size();
     p_d2size = parent.get_d2size();
     elem = parent.shallow_copied_data();
-    _valid = parent.valid();
+    // TODO check boundary
 }
 
 template<typename T>
 MatrixView<T>::MatrixView(const Matrix<T> &parent, size_t row_low, size_t row_high, size_t col_low, size_t col_high) {
+    if (row_high - row_low > parent.get_d1size() || col_high - col_low > parent.get_d2size()) {
+        throw std::exception();
+    } else if (row_high <= row_low || col_high <= col_low) {
+        throw std::exception();
+    }
     row = std::vector<size_t>(row_high - row_low);
     col = std::vector<size_t>(col_high - col_low);
     for (size_t i = 0; i < row.size(); i++) {
@@ -34,7 +39,6 @@ MatrixView<T>::MatrixView(const Matrix<T> &parent, size_t row_low, size_t row_hi
     p_d1size = parent.get_d1size();
     p_d2size = parent.get_d2size();
     elem = parent.shallow_copied_data();
-    _valid = parent.valid();
 }
 
 #endif //COURSEPROJECT_MATRIX_VIEW_IMPL_H
