@@ -7,6 +7,7 @@
 #ifndef COURSEPROJECT_MATRIX_TEMPLATE_H
 #define COURSEPROJECT_MATRIX_TEMPLATE_H
 
+#include "smart_array.h"
 #include <vector>
 #include <list>
 #include <utility>
