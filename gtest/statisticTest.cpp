@@ -128,3 +128,15 @@ TEST_F(Statistic, determinant) {
 TEST_F(Statistic, avg) {
     ASSERT_EQ(matrix.avg(), 3);
 }
+
+TEST_F(Statistic, trace) {
+    Matrix<int> matrix1{
+            {1, 2},
+            {3, 4}
+    };
+
+    Matrix<int> matrix2(4, 5);
+
+    ASSERT_EQ(matrix1.trace(), 5);
+    ASSERT_ANY_THROW(matrix2.trace());
+}

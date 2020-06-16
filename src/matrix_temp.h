@@ -117,7 +117,7 @@ public:
 
     Matrix<T> hadamard(const Matrix<T> &other) const;
 
-    Matrix<T> gaussian_eliminate(bool row_reduced = false) const;
+    Matrix<T> gaussian_eliminated(bool row_reduced = false) const;
 
     void swap_rows(int r0, int r1);
 

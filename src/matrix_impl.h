@@ -263,7 +263,13 @@ std::list<EigenPair<T>> Matrix<T>::eigen_decompose() const {
 
 template<typename T>
 T Matrix<T>::trace() const {
-    return nullptr;
+    if (d1size != d2size)
+        throw std::exception();
+    T ret = at(0, 0);
+    for (int k = 1; k < d1size; k++) {
+        ret += at(k, k);
+    }
+    return ret;
 }
 
 template<typename T>
@@ -271,7 +277,7 @@ T Matrix<T>::determinant() const {
     if (d1size != d2size)
         throw std::exception();
     T det;
-    Matrix<T> row_reduced = gaussian_eliminate();
+    Matrix<T> row_reduced = gaussian_eliminated();
     det = row_reduced.at(0, 0);
     for (int k = 1; k < d1size; k++) {
         det *= row_reduced.at(k, k);
@@ -408,7 +414,7 @@ void Matrix<T>::swap_rows(int r0, int r1) {
  * @see https://github.com/akalicki/matrix
  */
 template<typename T>
-Matrix<T> Matrix<T>::gaussian_eliminate(const bool row_reduced) const {
+Matrix<T> Matrix<T>::gaussian_eliminated(const bool row_reduced) const {
     Matrix<T> ret(*this);
     bool pivot_found; // whether current row has a pivot or not
     int i = 0;

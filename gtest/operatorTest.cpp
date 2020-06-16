@@ -237,13 +237,13 @@ TEST_F(Operator, gaussianEliminate) {
             {0, 0, 0}
     };
 
-    auto res1 = d_matrix.gaussian_eliminate();
+    auto res1 = d_matrix.gaussian_eliminated();
     ASSERT_TRUE(res1.valid());
     ASSERT_EQ(res1.get_d1size(), 3);
     ASSERT_EQ(res1.get_d2size(), 3);
     EXPECT_EQ(res1, expected1);
 
-    auto res2 = d_matrix.gaussian_eliminate(true);
+    auto res2 = d_matrix.gaussian_eliminated(true);
     ASSERT_TRUE(res2.valid());
     ASSERT_EQ(res2.get_d1size(), 3);
     ASSERT_EQ(res2.get_d2size(), 3);
