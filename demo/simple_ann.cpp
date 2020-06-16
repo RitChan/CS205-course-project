@@ -1,6 +1,7 @@
 #include "matrix.h"
 #include "simple_ann.h"
 #include <iostream>
+#include "_utility.h"
 #include <cstdio>
 
 using namespace std;
@@ -75,24 +76,6 @@ std::vector<int> activate(std::vector<int> input) {
             ret[i] = 1;
         else
             ret[i] = 0;
-    }
-    return ret;
-}
-
-int operator*(const std::vector<int> &left, const std::vector<int> &right) {
-    size_t min_len = left.size() < right.size() ? left.size() : right.size();
-    int result = 0;
-    for (int i = 0; i < min_len; i++) {
-        result += left[i] * right[i];
-    }
-    return result;
-}
-
-std::vector<int> operator+(const std::vector<int> &left, const std::vector<int> &right) {
-    size_t min_len = left.size() < right.size() ? left.size() : right.size();
-    vector<int> ret(min_len, 0);
-    for (size_t i = 0; i < min_len; i++) {
-        ret[i] = left[i] + right[i];
     }
     return ret;
 }

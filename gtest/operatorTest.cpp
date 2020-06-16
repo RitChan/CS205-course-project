@@ -256,5 +256,13 @@ TEST_F(Operator, selfDivideConstant) {
     EXPECT_EQ(matrix.at(0, 1), 1);
     EXPECT_EQ(matrix.at(1, 0), 1);
     EXPECT_EQ(matrix.at(1, 1), 2);
+}
 
+TEST_F(Operator, plusConstant) {
+    auto res = matrix + 5;
+    ASSERT_TRUE(res.valid());
+    ASSERT_EQ(res.get_d1size(), 2);
+    ASSERT_EQ(res.get_d2size(), 2);
+    EXPECT_EQ(res.at(0, 0), 6);
+    EXPECT_EQ(res.at(1, 1), 9);
 }

@@ -59,6 +59,10 @@ public:
 
     Matrix<T> &operator+=(const Matrix<T> &other);
 
+    Matrix<T> operator+(const T &other) const;
+
+    Matrix<T> &operator+=(const T &other);
+
     Matrix<T> operator-(const Matrix<T> &other) const;
 
     Matrix<T> &operator-=(const Matrix<T> &other);
@@ -138,7 +142,6 @@ public:
     template<typename M>
     friend Matrix<M> operator*(const M &c, const Matrix<M> &matrix);
 
-    Matrix<T> scan(const Matrix<T> &target);
 protected:
     bool shape_equal_to(const Matrix<T> &other) const { return d1size == other.d1size && d2size == other.d2size; }
 

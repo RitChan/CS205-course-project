@@ -14,7 +14,7 @@ public:
 
     MatrixView() = default;
 
-    MatrixView(const Matrix<T> &parent, std::vector<size_t> row, std::vector<std::size_t> col);
+    MatrixView(const Matrix<T> &parent, const std::vector<size_t>& row, const std::vector<std::size_t>& col);
 
     MatrixView(const Matrix<T> &parent, size_t row_low, size_t row_high, size_t col_low, size_t col_high);
 
@@ -31,6 +31,8 @@ public:
     size_t get_d1size() { return d1size; }
 
     size_t get_d2size() { return d2size; }
+
+    Matrix<T> to_matrix();
 
 private:
 

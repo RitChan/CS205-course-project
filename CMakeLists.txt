@@ -3,7 +3,7 @@ project(CourseProject)
 
 set(CMAKE_CXX_STANDARD 14)
 include_directories(src)
-set(MAJOR )
+set(MAJOR src/_utility.cpp src/_utility.h)
 
 #add_executable(CourseProject main.cpp src/matrix.h)
 add_executable(rtest ${MAJOR} test/test_file_0.cpp test/test_main.cpp test/test_header.h test/test_assert.h test/test_file_1.cpp test/test_file_2.cpp)
@@ -17,5 +17,7 @@ add_executable(matrix_gtest ${MAJOR} gtest/basicTest.cpp gtest/operatorTest.cpp 
 target_link_libraries(matrix_gtest PUBLIC ${GTEST_LIB} PUBLIC ${GTEST_MAIN_LIB})
 
 # demo
-add_executable(demo ${MAJOR} demo/simple_ann.cpp)
-target_include_directories(demo PUBLIC demo)
+add_executable(demo1 ${MAJOR} demo/simple_ann.cpp)
+target_include_directories(demo1 PUBLIC demo)
+add_executable(demo2 ${MAJOR} demo/simple_cnn.cpp)
+target_include_directories(demo2 PUBLIC demo)

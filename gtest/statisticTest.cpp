@@ -4,6 +4,7 @@
  * @brief Statistic operation tests on Matrix.
  */
 #include "gtest.h"
+#include "_utility.h"
 #include "matrix.h"
 
 class Statistic : public ::testing::Test {
@@ -152,7 +153,7 @@ TEST_F(Statistic, convolution) {
             {9, 10, 11, 12}
     };
 
-    Matrix<int> res = k.scan(m);
+    Matrix<int> res = scan(k, m);
 
     ASSERT_TRUE(res.valid());
     ASSERT_EQ(res.get_d1size(), 2);
