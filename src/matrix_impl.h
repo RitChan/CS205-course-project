@@ -246,7 +246,14 @@ T Matrix<T>::sum() const {
 
 template<typename T>
 T Matrix<T>::avg() const {
-    return '\0';
+    T sum = at(0, 0);
+    for (int i = 0; i < d1size; i++) {
+        for (int j = 0; j < d2size; j++) {
+            sum += at(i, j);
+        }
+    }
+    sum -= at(0, 0);
+    return sum / (d1size * d2size);
 }
 
 template<typename T>
@@ -401,7 +408,7 @@ void Matrix<T>::swap_rows(int r0, int r1) {
  * @see https://github.com/akalicki/matrix
  */
 template<typename T>
-Matrix<T> Matrix<T>::gaussian_eliminate(bool row_reduced) const {
+Matrix<T> Matrix<T>::gaussian_eliminate(const bool row_reduced) const {
     Matrix<T> ret(*this);
     bool pivot_found; // whether current row has a pivot or not
     int i = 0;

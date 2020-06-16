@@ -124,3 +124,7 @@ TEST_F(Statistic, determinant) {
     auto det3 = d_matrix3.determinant();
     ASSERT_DOUBLE_EQ(det3, 0);
 }
+
+TEST_F(Statistic, avg) {
+    ASSERT_EQ(matrix.avg(), 3);
+}
