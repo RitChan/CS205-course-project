@@ -38,12 +38,15 @@ public:
 
     Matrix(MatrixInitList init_list);
 
-    Matrix(const Matrix<T> &other);
+    Matrix(const Matrix<T> &other) { *this = other; };
 
     Matrix(Matrix<T> &&other) noexcept = default;
 
-    ~Matrix() = default;
+    virtual ~Matrix() = default;
 
+    /**
+     * Deep copy. All matrix entries will get allocated in a new place.
+     */
     Matrix<T> &operator=(const Matrix<T> &other);
 
     Matrix<T> &operator=(Matrix<T> &&other) noexcept = default;
@@ -52,7 +55,7 @@ public:
 
     bool operator!=(const Matrix<T> &other) const { return !(*this == other); }
 
-    // TODO /=, matrix * vector
+    // TODO /=
     Matrix<T> operator+(const Matrix<T> &other) const;
 
     Matrix<T> &operator+=(const Matrix<T> &other);
@@ -75,11 +78,13 @@ public:
 
     Matrix<T> operator/(const T &c) const;
 
-    T &at(int i, int j) {
+    virtual T &at(int i, int j) {
         return elem[i * d2size + j];
     };
 
-    const T &at(int i, int j) const { return elem[i * d2size + j]; };
+    virtual const T &at(int i, int j) const {
+        return elem[i * d2size + j];
+    };
 
     T max() const;
 
@@ -125,15 +130,13 @@ public:
 
     int get_d2size() const { return d2size; };
 
+    SmartArray<T> shallow_copied_data() const { return elem.shallow_copy(); }
+
     bool valid() const { return _valid; };
 
     template<typename M>
     friend Matrix<M> operator*(const M &c, const Matrix<M> &matrix);
 
-    // TODO slicing
-    Matrix<T> sub_matrix(int row_low, int row_high, int col_low, int col_high);
-
-    Matrix<T> sub_matrix(std::initializer_list<int> rows, std::initializer_list<int> cols);
     // TODO convolution operations
 protected:
     bool shape_equal_to(const Matrix<T> &other) const { return d1size == other.d1size && d2size == other.d2size; }

@@ -4,9 +4,7 @@
 
 #include "smart_array_temp.h"
 #include <exception>
-using namespace std;
 
-// TODO remove it, same functionality with "="
 template<typename T>
 SmartArray<T> SmartArray<T>::shallow_copy() const {
     SmartArray<T> ret;

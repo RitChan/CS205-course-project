@@ -38,7 +38,7 @@ Matrix<T>::Matrix(Matrix::MatrixInitList init_list): d1size(init_list.size()), d
         }
         j = 0;
         for (T e: row)
-            at(i, j++) = e;
+            elem[i * d2size + (j++)] = e;
         i++;
     }
 }
@@ -53,11 +53,6 @@ Matrix<T> &Matrix<T>::operator=(const Matrix<T> &other) {
     }
     _valid = other._valid;
     return *this;
-}
-
-template<typename T>
-Matrix<T>::Matrix(const Matrix<T> &other) {
-    *this = other;
 }
 
 template<typename T>

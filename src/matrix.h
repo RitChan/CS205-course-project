@@ -8,4 +8,5 @@
 #define COURSEPROJECT_MATRIX_H
 #include "matrix_temp.h"
 #include "matrix_impl.h"
+#include "matrix_view.h"
 #endif //COURSEPROJECT_MATRIX_H
