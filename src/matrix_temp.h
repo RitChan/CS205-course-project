@@ -40,13 +40,13 @@ public:
 
     Matrix(const Matrix<T> &other);
 
-    Matrix(Matrix<T> &&other) noexcept;
+    Matrix(Matrix<T> &&other) noexcept = default;
 
-    ~Matrix();
+    ~Matrix() = default;
 
     Matrix<T> &operator=(const Matrix<T> &other);
 
-    Matrix<T> &operator=(Matrix<T> &&other) noexcept;
+    Matrix<T> &operator=(Matrix<T> &&other) noexcept = default;
 
     bool operator==(const Matrix<T> &other) const;
 
@@ -138,13 +138,8 @@ public:
 protected:
     bool shape_equal_to(const Matrix<T> &other) const { return d1size == other.d1size && d2size == other.d2size; }
 
-    void release();
-
-    static void swap(Matrix<T> &left, Matrix<T> &right);
-
     size_t d1size{0};
     size_t d2size{0};
-    T *entry{nullptr};
     SmartArray<T> elem{};
     bool _valid{true};
 };

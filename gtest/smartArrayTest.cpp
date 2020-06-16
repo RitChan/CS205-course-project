@@ -1,6 +1,8 @@
 //
 // Created by chenh on 6/16/2020.
 //
+#include <smart_array_temp.h>
+
 #include "smart_array.h"
 #include "gtest.h"
 
@@ -27,14 +29,14 @@ TEST_F(SmartArrayTest, makeArrayTest) {
 }
 
 TEST_F(SmartArrayTest, referToTest) {
-    auto ref = ary.copy();
+    auto ref = ary.shallow_copy();
     ASSERT_TRUE(ref.ref_count != nullptr);
     ASSERT_TRUE(ref.elem != nullptr);
     ASSERT_EQ(*ref.ref_count, 2);
 }
 
 TEST_F(SmartArrayTest, releaseTest) {
-    auto ref = ary.copy();
+    auto ref = ary.shallow_copy();
     ref.release();
     EXPECT_EQ(*ary.ref_count, 1);
     ary.release();

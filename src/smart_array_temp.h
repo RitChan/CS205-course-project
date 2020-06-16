@@ -27,7 +27,7 @@ public:
     T &operator[](int index);
     const T&operator[](int index) const;
 
-    SmartArray<T> copy() const;
+    SmartArray<T> shallow_copy() const;
     void release();
 
 private:

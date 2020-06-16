@@ -15,12 +15,9 @@ Matrix<T>::Matrix(int d1size, int d2size): d1size(d1size), d2size(d2size),
                                            _valid(true) {
     if (d1size <= 0 || d2size <= 0) {
         _valid = false;
-        entry = nullptr;
         return;
     }
     elem = SmartArray<T>::make_array(d1size * d2size);
-    entry = new T[d1size * d2size];
-    memset(entry, 0, sizeof(T) * d1size * d2size);
 }
 
 template<typename T>
@@ -32,12 +29,11 @@ Matrix<T>::Matrix(Matrix::MatrixInitList init_list): d1size(init_list.size()), d
             _valid = false;
             d1size = 0;
             d2size = 0;
-            release();
+            elem.release();
             break;
         }
         if (d2size != row.size()) {
             d2size = row.size();
-            entry = new T[d1size * d2size];
             elem = SmartArray<T>::make_array(d1size * d2size);
         }
         j = 0;
@@ -48,49 +44,20 @@ Matrix<T>::Matrix(Matrix::MatrixInitList init_list): d1size(init_list.size()), d
 }
 
 template<typename T>
-Matrix<T>::Matrix(const Matrix<T> &other) {
-    *this = other;
-}
-
-template<typename T>
-Matrix<T>::Matrix(Matrix<T> &&other) noexcept {
-    *this = std::forward<Matrix<T>>(other);
-}
-
-template<typename T>
-Matrix<T>::~Matrix() {
-    release();
-}
-
-template<typename T>
 Matrix<T> &Matrix<T>::operator=(const Matrix<T> &other) {
-    if (&other == this)
-        return *this;
-    else if (!other.valid()) {
-        release();
-        _valid = false;
-        d1size = 0;
-        d2size = 0;
-        return *this;
-    }
-    release();
     d1size = other.d1size;
     d2size = other.d2size;
-    entry = new T[other.d1size * other.d2size];
-    elem = SmartArray<T>::make_array(other.d1size * other.d2size);
-    for (size_t i = 0; i < d1size * d2size; i++) {
-        entry[i] = other.entry[i];
+    elem = SmartArray<T>::make_array(d1size * d2size);
+    for (int i = 0; i < d1size * d2size; i++) {
         elem[i] = other.elem[i];
     }
-    _valid = true;
+    _valid = other._valid;
     return *this;
 }
 
 template<typename T>
-Matrix<T> &Matrix<T>::operator=(Matrix<T> &&other) noexcept {
-    Matrix<T>::swap(*this, other);
-    elem = move(other.elem);
-    return *this;
+Matrix<T>::Matrix(const Matrix<T> &other) {
+    *this = other;
 }
 
 template<typename T>
@@ -414,36 +381,6 @@ template<typename T>
 Matrix<T> &Matrix<T>::operator*=(const std::vector<T> &vec) {
     _valid = false;
     return *this;
-}
-
-
-template<typename T>
-void Matrix<T>::release() {
-    delete entry;
-    entry = nullptr;
-}
-
-template<typename T>
-void Matrix<T>::swap(Matrix<T> &left, Matrix<T> &right) {
-    size_t temp_size;
-    T *temp_ptr;
-    bool temp_bool;
-
-    temp_size = left.d1size;
-    left.d1size = right.d1size;
-    right.d1size = temp_size;
-
-    temp_size = left.d2size;
-    left.d2size = right.d2size;
-    right.d2size = temp_size;
-
-    temp_ptr = left.entry;
-    left.entry = right.entry;
-    right.entry = temp_ptr;
-
-    temp_bool = left._valid;
-    left._valid = right._valid;
-    right._valid = temp_bool;
 }
 
 template<typename T>

@@ -6,10 +6,9 @@
 #include <exception>
 using namespace std;
 
+// TODO remove it, same functionality with "="
 template<typename T>
-SmartArray<T> SmartArray<T>::copy() const {
-    if (ref_count == nullptr)
-        throw std::exception();
+SmartArray<T> SmartArray<T>::shallow_copy() const {
     SmartArray<T> ret;
     ret.elem = elem;
     ret.ref_count = ref_count;
@@ -56,6 +55,7 @@ SmartArray<T> &SmartArray<T>::operator=(const SmartArray<T> &other) {
     ref_count = other.ref_count;
     if (ref_count != nullptr)
         *ref_count += 1;
+    return *this;
 }
 
 template<typename T>
