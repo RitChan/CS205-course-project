@@ -8,6 +8,7 @@
 #include <cmath>
 #include <iostream>
 #include <_utility.h>
+#include <cstdio>
 
 using namespace std;
 
@@ -49,51 +50,51 @@ int main() {
 
 static void run_network(const Matrix<double> &input) {
     static Matrix<double> O0_P0{
-            {-0.317, 0.151},
-            {-3.223, 1.323}
+            {-0.53, 0.73},
+            {-1.78, 0.55}
     };
 
     static Matrix<double> O0_P1{
-            {-25.887, -0.494},
-            {0.402,   -1.571}
+            {-4.96, 0.17},
+            {0.54, -0.93}
     };
 
     static Matrix<double> O0_P2{
-            {-3.661, 1.908},
-            {0.009,  -0.159}
+            {-2.00, -1.78},
+            {-0.89, 0.04}
     };
 
     static Matrix<double> O1_P0{
-            {0.010,   -0.642},
-            {-11.069, 9.001}
+            {-0.69, -0.47},
+            {-3.15, 2.82}
     };
 
     static Matrix<double> O1_P1{
-            {12.096, 0.003},
-            {-0.352, 10.159}
+            {2.77, -0.73},
+            {-0.58, 2.42}
     };
 
     static Matrix<double> O1_P2{
-            {0.430, 1.672},
-            {2.060, -0.093}
+            {0.77, 1.49},
+            {2.19, -0.20}
     };
 
     static Matrix<double> O2_P0{
-            {2.775,  -0.233},
-            {43.616, 0.045}
+            {-0.22,  -0.41},
+            {5.30, -1.58}
     };
 
     static Matrix<double> O2_P1{
-            {0.755,  0.213},
-            {-0.138, -8.731}
+            {1.48,  0.20},
+            {-1.76, -2.69}
     };
 
     static Matrix<double> O2_P2{
-            {-1.086, -0.851},
-            {-0.167, -3.019}
+            {1.15, -0.75},
+            {-0.36, -1.48}
     };
 
-    static vector<double> bias{14.764, -21.116, -9.164};
+    static vector<double> bias{3.15, -4.27, -2.25};
 
     vector<Matrix<double>> F = cnn_scan(input); // filtering
     vector<Matrix<double>> P(F.size());
@@ -114,17 +115,17 @@ static void run_network(const Matrix<double> &input) {
     vector<double> a(3, 0);
 
     auto z00 = P[0].hadamard(O0_P0);
-    auto z01 = P[0].hadamard(O0_P1);
-    auto z02 = P[0].hadamard(O0_P2);
+    auto z01 = P[1].hadamard(O0_P1);
+    auto z02 = P[2].hadamard(O0_P2);
     a[0] = z00.sum() + z01.sum() + z02.sum() + bias[0];
 
-    auto z10 = P[1].hadamard(O1_P0);
+    auto z10 = P[0].hadamard(O1_P0);
     auto z11 = P[1].hadamard(O1_P1);
-    auto z12 = P[1].hadamard(O1_P2);
+    auto z12 = P[2].hadamard(O1_P2);
     a[1] = z10.sum() + z11.sum() + z12.sum() + bias[1];
 
-    auto z20 = P[2].hadamard(O2_P0);
-    auto z21 = P[2].hadamard(O2_P1);
+    auto z20 = P[0].hadamard(O2_P0);
+    auto z21 = P[1].hadamard(O2_P1);
     auto z22 = P[2].hadamard(O2_P2);
     a[2] = z20.sum() + z21.sum() + z22.sum() + bias[2];
 
@@ -162,24 +163,24 @@ Matrix<double> activate(const Matrix<double> &input) {
 std::vector<Matrix<double>> cnn_scan(const Matrix<double> &input) {
     // scanners
     static Matrix<double> scanner0{
-            {1.161, -0.848,  1.356},
-            {5.825,  -14.571, -6.945},
-            {4.389,  8.317,   1.214}
+            {-0.65, -0.78,  0.35},
+            {2.40,  -3.78, -2.74},
+            {0.73,  1.98,   1.33}
     };
 
     static Matrix<double> scanner1{
-            {1.950,  14.210, 5.029},
-            {4.344,  -1.471, -12.478},
-            {-1.346, -5.859, -2.408}
+            {-0.70,  3.92, 1.98},
+            {2.96,  -1.39, -2.97},
+            {-0.98, -2.72, -1.17}
     };
 
     static Matrix<double> scanner2{
-            {-0.785, 4.159,  -0.542},
-            {0.468,  -8.465, -4.508},
-            {0.183,  -2.567, 0.231}
+            {-1.82, 2.64,  -1.29},
+            {-1.72, -2.37, -3.01},
+            {-0.03, -1.69, 0.35}
     };
 
-    vector<double> bias{-14.706, -13.572, -4.879};
+    vector<double> bias{-3.46, -3.64, -2.53};
 
     vector<Matrix<double>> ret(3);
 
@@ -188,4 +189,14 @@ std::vector<Matrix<double>> cnn_scan(const Matrix<double> &input) {
     ret[2] = activate(scan(scanner2, input) + bias[2]);
 
     return ret;
+}
+
+void print_matrix(const Matrix<double> &matrix) {
+    printf("\n[Print Matrix]\n");
+    for (int i= 0; i < matrix.get_d1size(); i++) {
+        for (int j = 0; j < matrix.get_d2size(); j++) {
+            printf("%.2g ", matrix.at(i, j));
+        }
+        printf("\n");
+    }
 }
