@@ -188,6 +188,19 @@ Matrix<T> Matrix<T>::operator/(const T &c) const {
 }
 
 template<typename T>
+Matrix<T> &Matrix<T>::operator/=(const T &c) {
+    if (c == '\0') {
+        throw std::exception();
+    }
+    for (int i = 0; i < d1size; i++) {
+        for (int j = 0; j < d2size; j++) {
+            at(i, j) /= c;
+        }
+    }
+    return *this;
+}
+
+template<typename T>
 Matrix<T> Matrix<T>::transpose() const {
     Matrix<T> ret(d2size, d1size);
     for (int i = 0; i < d1size; i++) {

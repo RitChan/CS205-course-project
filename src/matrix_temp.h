@@ -55,7 +55,6 @@ public:
 
     bool operator!=(const Matrix<T> &other) const { return !(*this == other); }
 
-    // TODO /=
     Matrix<T> operator+(const Matrix<T> &other) const;
 
     Matrix<T> &operator+=(const Matrix<T> &other);
@@ -73,6 +72,8 @@ public:
     Matrix<T> &operator*=(const T &other);
 
     Matrix<T> operator/(const T &c) const;
+
+    Matrix<T> &operator/=(const T& c);
 
     virtual T &at(int i, int j) {
         return elem[i * d2size + j];

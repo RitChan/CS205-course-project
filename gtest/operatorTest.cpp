@@ -249,3 +249,12 @@ TEST_F(Operator, gaussianEliminate) {
     ASSERT_EQ(res2.get_d2size(), 3);
     EXPECT_EQ(res2, expected2);
 }
+
+TEST_F(Operator, selfDivideConstant) {
+    matrix /= 2;
+    EXPECT_EQ(matrix.at(0, 0), 0);
+    EXPECT_EQ(matrix.at(0, 1), 1);
+    EXPECT_EQ(matrix.at(1, 0), 1);
+    EXPECT_EQ(matrix.at(1, 1), 2);
+
+}
