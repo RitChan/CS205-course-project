@@ -2,12 +2,8 @@ cmake_minimum_required(VERSION 3.16)
 project(CourseProject)
 
 set(CMAKE_CXX_STANDARD 14)
-include_directories(src)
-set(MAJOR src/_utility.cpp src/_utility.h)
-
-#add_executable(CourseProject main.cpp src/matrix.h)
-add_executable(rtest ${MAJOR} test/test_file_0.cpp test/test_main.cpp test/test_header.h test/test_assert.h test/test_file_1.cpp test/test_file_2.cpp)
-target_include_directories(rtest PUBLIC rtest)
+include_directories(src src/aggregate)
+set(MAJOR )
 
 # GoogleTest
 include_directories(gtestlib/includes/gtest gtestlib/includes)
@@ -21,3 +17,5 @@ add_executable(demo1 ${MAJOR} demo/simple_ann.cpp)
 target_include_directories(demo1 PUBLIC demo)
 add_executable(demo2 ${MAJOR} demo/simple_cnn.cpp)
 target_include_directories(demo2 PUBLIC demo)
+
+add_executable(main main.cpp)

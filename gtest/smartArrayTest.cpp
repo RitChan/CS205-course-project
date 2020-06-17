@@ -1,10 +1,10 @@
 //
 // Created by chenh on 6/16/2020.
 //
-#include <smart_array_temp.h>
-
 #include "smart_array.h"
 #include "gtest.h"
+
+using namespace mat;
 
 class SmartArrayTest: public ::testing::Test {
 protected:
@@ -21,25 +21,19 @@ protected:
 };
 
 TEST_F(SmartArrayTest, makeArrayTest) {
-    ASSERT_TRUE(ary.ref_count != nullptr);
-    ASSERT_TRUE(ary.elem != nullptr);
-    EXPECT_EQ(*ary.ref_count, 1);
+    EXPECT_EQ(ary.get_ref_count(), 1);
     for (int i = 0; i < 9; i++)
         EXPECT_EQ(ary[i], 0);
 }
 
 TEST_F(SmartArrayTest, referToTest) {
     auto ref = ary.shallow_copy();
-    ASSERT_TRUE(ref.ref_count != nullptr);
-    ASSERT_TRUE(ref.elem != nullptr);
-    ASSERT_EQ(*ref.ref_count, 2);
+    ASSERT_EQ(ref.get_ref_count(), 2);
 }
 
 TEST_F(SmartArrayTest, releaseTest) {
     auto ref = ary.shallow_copy();
     ref.release();
-    EXPECT_EQ(*ary.ref_count, 1);
+    EXPECT_EQ(ary.get_ref_count(), 1);
     ary.release();
-    EXPECT_TRUE(ary.ref_count == nullptr);
-    EXPECT_TRUE(ary.elem == nullptr);
 }

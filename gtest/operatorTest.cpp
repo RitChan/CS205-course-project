@@ -5,9 +5,10 @@
  */
 
 #include "gtest.h"
-#include "matrix.h"
+#include "matrix_.h"
 #include <vector>
 
+using namespace mat;
 
 class Operator : public ::testing::Test {
 protected:

@@ -4,8 +4,10 @@
  * @brief Statistic operation tests on Matrix.
  */
 #include "gtest.h"
-#include "_utility.h"
-#include "matrix.h"
+#include "utility_.h"
+#include "matrix_.h"
+
+using namespace mat;
 
 class Statistic : public ::testing::Test {
 protected:
