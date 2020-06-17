@@ -5,8 +5,9 @@
  */
 
 #include "gtest.h"
-#include "matrix.h"
+#include "matrix_.h"
 
+using namespace mat;
 
 class Basic : public ::testing::Test {
 protected:
@@ -43,12 +44,12 @@ TEST_F(Basic, listConstructorTest) {
     ASSERT_TRUE(matrix1.at(0, 0) == 1);
     ASSERT_TRUE(matrix1.at(1, 2) == 6);
 
-    Matrix<int>matrix2{
+    Matrix<int> matrix2{
             {}
     };
     ASSERT_TRUE(!matrix2.valid());
 
-    Matrix<int>matrix3{
+    Matrix<int> matrix3{
             {1, 2},
             {0}
     };

@@ -3,10 +3,12 @@
 //
 
 #include "gtest.h"
-#include "matrix.h"
+#include "matrix_.h"
 #include "matrix_view.h"
 
-class MatrixViewTest: public ::testing::Test {
+using namespace mat;
+
+class MatrixViewTest : public ::testing::Test {
 protected:
     void SetUp() override {
         matrix = {

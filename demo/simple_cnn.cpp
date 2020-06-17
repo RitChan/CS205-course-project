@@ -3,14 +3,15 @@
 //
 
 #include "simple_cnn.h"
-#include "matrix_view.h"
 #include <vector>
 #include <cmath>
 #include <iostream>
-#include <_utility.h>
+#include <utility_.h>
 #include <cstdio>
+#include <float.h>
 
 using namespace std;
+using namespace mat;
 
 static void run_network(const Matrix<double> &input);
 
@@ -25,6 +26,7 @@ int main() {
             {0, 1, 1, 1, 0, 0}
     };
 
+    // 2
     Matrix<double> input1{
             {0, 1, 1, 1, 1, 0},
             {0, 1, 0, 0, 1, 0},
@@ -34,8 +36,9 @@ int main() {
             {0, 1, 1, 1, 1, 0}
     };
 
+    // 1
     Matrix<double> input2{
-            {0, 0, 1, 1, 1, 0},
+            {0, 0, 1, 1, 0, 0},
             {0, 0, 0, 1, 0, 0},
             {0, 0, 0, 1, 0, 0},
             {0, 0, 0, 1, 0, 0},
@@ -106,12 +109,20 @@ static void run_network(const Matrix<double> &input) {
         for (int i = 0; i < matrix.get_d1size(); i++) {
             for (int j = 0; j < matrix.get_d2size(); ++j) {
                 MatrixView<double> view(F[k], i * 2, i * 2 + 2, j * 2, j * 2 + 2);
-                matrix.at(i, j) = view.to_matrix().max(); // max pooling
+                matrix.at(i, j) = DBL_MIN;
+                // max pooling
+                for (int s = 0; s < view.get_d1size(); s++) {
+                    for (int t = 0; t < view.get_d2size(); t++) {
+                        if (matrix.at(i, j) < view.at(s, t))
+                            matrix.at(i, j) = view.at(s, t);
+                    }
+                }
             }
         }
         k++;
     }
 
+    // output layer
     vector<double> a(3, 0);
 
     auto z00 = P[0].hadamard(O0_P0);
@@ -131,9 +142,12 @@ static void run_network(const Matrix<double> &input) {
 
     a = activate(a);
 
+    cout << endl << "[Input]" << endl;
+    print_01_matrix(input);
+
     cout << endl << "[Output]" << endl;
     for (int i = 0; i < a.size(); ++i) {
-        cout << "Confidence of " << i + 1 << " = " << a[i] << endl;
+        printf("Probability of %d = %.2f\n", i + 1, a[i]);
     }
 }
 
@@ -191,11 +205,13 @@ std::vector<Matrix<double>> cnn_scan(const Matrix<double> &input) {
     return ret;
 }
 
-void print_matrix(const Matrix<double> &matrix) {
-    printf("\n[Print Matrix]\n");
+void print_01_matrix(const Matrix<double> &matrix) {
     for (int i= 0; i < matrix.get_d1size(); i++) {
         for (int j = 0; j < matrix.get_d2size(); j++) {
-            printf("%.2g ", matrix.at(i, j));
+            if (matrix.at(i, j) == 0)
+                printf(". ");
+            else
+                printf("%g ", matrix.at(i, j));
         }
         printf("\n");
     }

@@ -1,10 +1,10 @@
 #include "matrix.h"
 #include "simple_ann.h"
 #include <iostream>
-#include "_utility.h"
 #include <cstdio>
 
 using namespace std;
+using namespace mat;
 
 static void run_network(const std::vector<int> &input);
 
@@ -56,7 +56,10 @@ static void run_network(const std::vector<int> &input) {
     cout << endl << "[Input]" << endl;
     int count = 0;
     for (int i: input) {
-        cout << i << " ";
+        if (i == 0)
+            printf(".  ");
+        else
+            printf("%d  ", i);
         if ((count++) % 3 == 2)
             cout << endl;
     }
@@ -76,6 +79,24 @@ std::vector<int> activate(std::vector<int> input) {
             ret[i] = 1;
         else
             ret[i] = 0;
+    }
+    return ret;
+}
+
+int operator*(const std::vector<int> &left, const std::vector<int> &right) {
+    size_t min_len = left.size() < right.size() ? left.size() : right.size();
+    int result = 0;
+    for (int i = 0; i < min_len; i++) {
+        result += left[i] * right[i];
+    }
+    return result;
+}
+
+std::vector<int> operator+(const std::vector<int> &left, const std::vector<int> &right) {
+    size_t min_len = left.size() < right.size() ? left.size() : right.size();
+    vector<int> ret(min_len, 0);
+    for (size_t i = 0; i < min_len; i++) {
+        ret[i] = left[i] + right[i];
     }
     return ret;
 }
